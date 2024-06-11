@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ui.timer.TimerFragment">
+
+    <!-- Timer-Anzeige -->
+    <TextView
+        android:id="@+id/timerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="25:00"
+        android:textSize="48sp"
+        android:textStyle="bold" />
+
+    <!-- Status-Indikator -->
+    <TextView
+        android:id="@+id/statusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Arbeitszeit"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Fortschrittsanzeige -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Kontrollknöpfe -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp">
+
+        <Button
+            android:id="@+id/startStopButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Start" />
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Reset" />
+    </LinearLayout>
+
+    <!-- Aktuelle Aufgabe -->
+    <TextView
+        android:id="@+id/currentTaskTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Aktuelle Aufgabe: Keine"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Erledigte Aufgaben -->
+    <TextView
+        android:id="@+id/completedTasksLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Erledigte Aufgaben:"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"/>
+
+    <ListView
+        android:id="@+id/completedTasksListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp" />
+
+</LinearLayout>
