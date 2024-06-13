@@ -1,4 +1,4 @@
-package com.example.pomodoro_22
+package com.example.pomodoro_22.ui.timer
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
