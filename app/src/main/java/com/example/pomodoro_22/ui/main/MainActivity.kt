@@ -1,4 +1,4 @@
-package com.example.pomodoro_22.ui.timer
+package com.example.pomodoro_22.ui.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.pomodoro_22.ui.theme.Pomodoro22Theme
+import com.example.pomodoro_22.ui.main.ui.theme.Pomodoro22Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
