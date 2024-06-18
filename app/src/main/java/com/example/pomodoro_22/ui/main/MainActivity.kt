@@ -2,6 +2,7 @@ package com.example.pomodoro_22.ui.main
 
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -17,12 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pomodoro_22.R
-import com.example.pomodoro_22.ui.main.ui.theme.Pomodoro22Theme
-import com.example.pomodoro_22.ui.main.ui.theme.darkMode
-import com.example.pomodoro_22.ui.main.ui.theme.resetButton
-import com.example.pomodoro_22.ui.main.ui.theme.startButton
-import com.example.pomodoro_22.ui.main.ui.theme.stopButton
-import com.example.pomodoro_22.ui.main.ui.theme.white
+import com.example.pomodoro_22.ui.main.ui.theme.*
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +40,7 @@ fun MainScreen() {
     var timerRunning by remember { mutableStateOf(false) }
     var timer: CountDownTimer? by remember { mutableStateOf(null) }
     var timeLeftInMillis by remember { mutableStateOf(25 * 60 * 1000L) }
+    var currentTime by remember { mutableStateOf(timeLeftInMillis) }
 
     Column(
         modifier = Modifier
@@ -58,15 +55,21 @@ fun MainScreen() {
             verticalAlignment = Alignment.CenterVertically
         ) {
             RoundedIconButton(
-                onClick = { /* TODO: Implement action */ },
+                onClick = {
+                    Log.d("MainScreen", "Add Task button clicked")
+                    // Implement action if needed
+                },
                 icon = R.drawable.addtaskicon,
-                contentDescription = "Add Task"
+                contentDescription = "Got to Tasks"
             )
 
             PomodoroTitle(name = "Pomodoro")
 
             RoundedIconButton(
-                onClick = { /* TODO: Implement action */ },
+                onClick = {
+                    Log.d("MainScreen", "Settings button clicked")
+                    // Implement action if needed
+                },
                 icon = R.drawable.settingsicon,
                 contentDescription = "Settings"
             )
@@ -78,24 +81,31 @@ fun MainScreen() {
         // Timer section
         PomodoroTimer(
             timeInMillis = timeLeftInMillis,
+            currentTime = currentTime,
             timerRunning = timerRunning,
             onStartTimer = {
+                Log.d("MainScreen", "Start button clicked")
+                if (timer != null) {
+                    timer?.cancel()
+                }
                 timer = startTimer(timeLeftInMillis) { millisUntilFinished ->
                     timeLeftInMillis = millisUntilFinished
                 }
                 timerRunning = true
             },
             onStopTimer = {
+                Log.d("MainScreen", "Stop button clicked")
                 timer?.cancel()
-                timerRunning = false
-            },
-
-            onResetTimer = {
-                timer?.cancel()
-                timeLeftInMillis = 25 * 60 * 1000L
                 timerRunning = false
             }
-        )
+
+        ) {
+            Log.d("MainScreen", "Reset button clicked")
+            timer?.cancel()
+            timeLeftInMillis = 25 * 60 * 1000L // Setze die Zeit zurück auf 25 Minuten
+            currentTime = timeLeftInMillis // Setze currentTime zurück auf 25 Minuten
+            timerRunning = false
+        }
 
         Spacer(modifier = Modifier.weight(1f)) // Spacer to push content to top
     }
@@ -105,41 +115,69 @@ fun MainScreen() {
 fun PomodoroTimer(
     timeInMillis: Long,
     timerRunning: Boolean,
+    currentTime: Long,
     onStartTimer: () -> Unit,
     onStopTimer: () -> Unit,
     onResetTimer: () -> Unit
 ) {
+    var timer: CountDownTimer? by remember { mutableStateOf(null) }
+
+    LaunchedEffect(timerRunning) {
+        if (timerRunning) {
+            timer = startTimer(currentTime) { millisUntilFinished ->
+                currentTime = millisUntilFinished
+            }
+        } else {
+            timer?.cancel()
+        }
+    }
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = formatTime(timeInMillis),
-            color = white,
-            fontSize = 48.sp,
-            fontWeight = FontWeight.Normal,
+        Box(
+            contentAlignment = Alignment.Center,
             modifier = Modifier.padding(vertical = 20.dp)
-        )
+        ) {
+            CircularProgressIndicator(
+                progress = if (timeInMillis > 0) currentTime.toFloat() / timeInMillis else 0f,
+                modifier = Modifier.size(250.dp),
+                strokeWidth = 5.dp,
+                color = Color.Red
+            )
+
+            Text(
+                text = formatTime(currentTime),
+                style = MaterialTheme.typography.headlineLarge,
+                color = white
+            )
+        }
 
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-
             RoundedButton(
-                onClick = { onResetTimer() },
+                onClick = {
+                    onResetTimer()
+                },
                 text = "Reset",
                 backgroundColor = resetButton
             )
 
             if (!timerRunning) {
                 RoundedButton(
-                    onClick = { onStartTimer() },
+                    onClick = {
+                        onStartTimer()
+                    },
                     text = "Start",
                     backgroundColor = startButton
                 )
             } else {
                 RoundedButton(
-                    onClick = { onStopTimer() },
+                    onClick = {
+                        onStopTimer()
+                    },
                     text = "Stop",
                     backgroundColor = stopButton
                 )
@@ -241,13 +279,16 @@ fun DividerLinePreview() {
 @Preview(showBackground = true)
 @Composable
 fun PomodoroTimerPreview() {
-    Pomodoro22Theme {
+    Surface(
+        color = darkMode,
+        modifier = Modifier.fillMaxSize()
+    ) {
         PomodoroTimer(
             timeInMillis = 25 * 60 * 1000L,
+            currentTime = 25 * 60 * 1000L,
             timerRunning = false,
             onStartTimer = {},
-            onStopTimer = {},
-            onResetTimer = {}
-        )
+            onStopTimer = {}
+        ) {}
     }
 }
