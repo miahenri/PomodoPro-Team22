@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">pomodoro-22</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="button_to_get_to_tasks">Task Button</string>
 </resources>
