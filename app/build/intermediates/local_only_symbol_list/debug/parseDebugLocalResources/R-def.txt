@@ -1,0 +1,25 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable addtaskicon
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable settingsicon
+id pomodoroText
+id settingsButton
+id taskButton
+layout mainactivity_layout
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string button_to_get_to_tasks
+string title_activity_main
+style Theme.Pomodoro22
+xml backup_rules
+xml data_extraction_rules
