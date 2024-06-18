@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pomodoro_22.R
 import com.example.pomodoro_22.ui.main.ui.theme.*
+import com.example.pomodoro_22.util.totalTimeInMillis
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +41,6 @@ fun MainScreen() {
     var timerRunning by remember { mutableStateOf(false) }
     var timer: CountDownTimer? by remember { mutableStateOf(null) }
     var timeLeftInMillis by remember { mutableStateOf(25 * 60 * 1000L) }
-    var currentTime by remember { mutableStateOf(timeLeftInMillis) }
 
     Column(
         modifier = Modifier
@@ -81,7 +81,6 @@ fun MainScreen() {
         // Timer section
         PomodoroTimer(
             timeInMillis = timeLeftInMillis,
-            currentTime = currentTime,
             timerRunning = timerRunning,
             onStartTimer = {
                 Log.d("MainScreen", "Start button clicked")
@@ -103,7 +102,6 @@ fun MainScreen() {
             Log.d("MainScreen", "Reset button clicked")
             timer?.cancel()
             timeLeftInMillis = 25 * 60 * 1000L // Setze die Zeit zurück auf 25 Minuten
-            currentTime = timeLeftInMillis // Setze currentTime zurück auf 25 Minuten
             timerRunning = false
         }
 
@@ -115,14 +113,13 @@ fun MainScreen() {
 fun PomodoroTimer(
     timeInMillis: Long,
     timerRunning: Boolean,
-    currentTime: Long,
     onStartTimer: () -> Unit,
     onStopTimer: () -> Unit,
     onResetTimer: () -> Unit
 ) {
     var timer: CountDownTimer? by remember { mutableStateOf(null) }
 
-    LaunchedEffect(timerRunning) {
+    /*LaunchedEffect(timerRunning) {
         if (timerRunning) {
             timer = startTimer(currentTime) { millisUntilFinished ->
                 currentTime = millisUntilFinished
@@ -130,7 +127,7 @@ fun PomodoroTimer(
         } else {
             timer?.cancel()
         }
-    }
+    }*/
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
@@ -140,14 +137,14 @@ fun PomodoroTimer(
             modifier = Modifier.padding(vertical = 20.dp)
         ) {
             CircularProgressIndicator(
-                progress = if (timeInMillis > 0) currentTime.toFloat() / timeInMillis else 0f,
+                progress = if (timeInMillis > 0) timeInMillis.toFloat() / totalTimeInMillis else 0f,
                 modifier = Modifier.size(250.dp),
                 strokeWidth = 5.dp,
                 color = Color.Red
             )
 
             Text(
-                text = formatTime(currentTime),
+                text = formatTime(timeInMillis),
                 style = MaterialTheme.typography.headlineLarge,
                 color = white
             )
@@ -285,7 +282,6 @@ fun PomodoroTimerPreview() {
     ) {
         PomodoroTimer(
             timeInMillis = 25 * 60 * 1000L,
-            currentTime = 25 * 60 * 1000L,
             timerRunning = false,
             onStartTimer = {},
             onStopTimer = {}

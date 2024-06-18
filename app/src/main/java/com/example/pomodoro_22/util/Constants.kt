@@ -1,4 +1,3 @@
 package com.example.pomodoro_22.util
 
-class Constants {
-}
+const val totalTimeInMillis = 25 * 60 * 1000L
