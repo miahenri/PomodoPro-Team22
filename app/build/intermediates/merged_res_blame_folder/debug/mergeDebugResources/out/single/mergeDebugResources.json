@@ -1,6 +1,5 @@
 [
     {
-<<<<<<< HEAD
         "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "com.example.pomodoro_22.app-main-6:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
@@ -19,6 +18,10 @@
     {
         "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-mdpi_ic_launcher.webp.flat",
         "source": "com.example.pomodoro_22.app-main-6:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.pomodoro_22.app-debug-4:/xml_root_preferences.xml.flat",
+        "source": "com.example.pomodoro_22.app-main-6:/xml/root_preferences.xml"
     },
     {
         "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-xxxhdpi_ic_launcher.webp.flat",
@@ -75,81 +78,9 @@
     {
         "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "com.example.pomodoro_22.app-main-6:/mipmap-mdpi/ic_launcher_round.webp"
-=======
-        "merged": "com.example.pomodoro_22.app-debug-45:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-45:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/mipmap-xhdpi/ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/drawable/ic_launcher_background.xml"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/mipmap-anydpi-v26/ic_launcher.xml"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/xml/data_extraction_rules.xml"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/xml_backup_rules.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/xml/backup_rules.xml"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/mipmap-hdpi/ic_launcher.webp"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/drawable_settingsicon.png.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/drawable/settingsicon.png"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/mipmap-mdpi/ic_launcher.webp"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/mipmap-anydpi-v26/ic_launcher_round.xml"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/layout_mainactivity_layout.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/layout/mainactivity_layout.xml"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/mipmap-xxhdpi/ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/mipmap-hdpi/ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/drawable/ic_launcher_foreground.xml"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/drawable_addtaskicon.png.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/drawable/addtaskicon.png"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/mipmap-xhdpi/ic_launcher.webp"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/mipmap-mdpi/ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/mipmap-xxxhdpi/ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.example.pomodoro_22.app-debug-45:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-47:/mipmap-xxxhdpi/ic_launcher.webp"
->>>>>>> 31930f0dd076c9a4c0e6298ec10742d153a0f93a
+        "merged": "com.example.pomodoro_22.app-debug-4:/drawable_arrowbackicon.png.flat",
+        "source": "com.example.pomodoro_22.app-main-6:/drawable/arrowbackicon.png"
     }
 ]

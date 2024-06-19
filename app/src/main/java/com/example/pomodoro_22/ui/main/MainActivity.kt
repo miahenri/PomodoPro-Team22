@@ -17,8 +17,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.pomodoro_22.R
 import com.example.pomodoro_22.ui.main.ui.theme.*
+import com.example.pomodoro_22.ui.settings.SettingsScreen
 import com.example.pomodoro_22.util.totalTimeInMillis
 
 class MainActivity : ComponentActivity() {
@@ -26,17 +31,23 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Pomodoro22Theme {
+                val navController = rememberNavController()
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = darkMode
-                ) { MainScreen() }
+                ) {
+                    NavHost(navController = navController, startDestination = "main_screen") {
+                        composable("main_screen") { MainScreen(navController) }
+                        composable("settings_screen") { SettingsScreen(navController) }
+                    }
+                }
             }
         }
     }
 }
 
 @Composable
-fun MainScreen() {
+fun MainScreen(navController: NavHostController) {
     var timerRunning by remember { mutableStateOf(false) }
     var timer: CountDownTimer? by remember { mutableStateOf(null) }
     var timeLeftInMillis by remember { mutableStateOf(25 * 60 * 1000L) }
@@ -59,7 +70,7 @@ fun MainScreen() {
                     // TODO Implement action if needed
                 },
                 icon = R.drawable.addtaskicon,
-                contentDescription = "Got to Tasks"
+                contentDescription = "Go to Tasks"
             )
 
             PomodoroTitle(name = "Pomodoro")
@@ -67,7 +78,7 @@ fun MainScreen() {
             RoundedIconButton(
                 onClick = {
                     Log.d("MainScreen", "Settings button clicked")
-                    // TODO Implement action if needed
+                    navController.navigate("settings_screen")
                 },
                 icon = R.drawable.settingsicon,
                 contentDescription = "Settings"
@@ -77,7 +88,6 @@ fun MainScreen() {
         DividerLine()
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Pomodoro Timer Sektion
         PomodoroTimer(
             timeInMillis = timeLeftInMillis,
             timerRunning = timerRunning,
@@ -96,7 +106,6 @@ fun MainScreen() {
                 timer?.cancel()
                 timerRunning = false
             }
-
         ) {
             Log.d("MainScreen", "Reset button clicked")
             timer?.cancel()
@@ -105,10 +114,24 @@ fun MainScreen() {
         }
 
         Spacer(modifier = Modifier.height(16.dp))
-        DividerLine()
 
-        Spacer(modifier = Modifier.weight(1f)) // Spacer um den Timer nach oben zu schieben
+        DividerLine()
+        WorkPhases()
+        DividerLine()
+        TaskList()
+
+        Spacer(modifier = Modifier.weight(1f))
     }
+}
+
+@Composable
+fun WorkPhases() {
+    // TODO Implementieren hier die Arbeitsphasen
+}
+
+@Composable
+fun TaskList() {
+    // TODO Implementieren hier eine Liste von Tasks die im Taskrepositroy gespeichert sind
 }
 
 @Composable

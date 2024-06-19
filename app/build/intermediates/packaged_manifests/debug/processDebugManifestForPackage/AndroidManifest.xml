@@ -28,6 +28,11 @@
         android:testOnly="true"
         android:theme="@style/Theme.Pomodoro22" >
         <activity
+            android:name="com.example.pomodoro_22.ui.settings.SettingsFragment"
+            android:exported="false"
+            android:label="@string/title_activity_settings_fragment"
+            android:theme="@style/Theme.Pomodoro22" />
+        <activity
             android:name="com.example.pomodoro_22.ui.main.MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
@@ -59,6 +64,13 @@
                 android:name="androidx.profileinstaller.ProfileInstallerInitializer"
                 android:value="androidx.startup" />
         </provider>
+
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false" />
+        <uses-library
+            android:name="androidx.window.sidecar"
+            android:required="false" />
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"
