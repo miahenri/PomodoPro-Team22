@@ -26,10 +26,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Pomodoro22Theme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = darkMode // Grey color
+                    color = darkMode
                 ) { MainScreen() }
             }
         }
@@ -46,7 +45,7 @@ fun MainScreen() {
         modifier = Modifier
             .fillMaxSize()
             .padding(horizontal = 10.dp)
-            .padding(top = 40.dp),
+            .padding(top = 20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Row(
@@ -57,7 +56,7 @@ fun MainScreen() {
             RoundedIconButton(
                 onClick = {
                     Log.d("MainScreen", "Add Task button clicked")
-                    // Implement action if needed
+                    // TODO Implement action if needed
                 },
                 icon = R.drawable.addtaskicon,
                 contentDescription = "Got to Tasks"
@@ -68,7 +67,7 @@ fun MainScreen() {
             RoundedIconButton(
                 onClick = {
                     Log.d("MainScreen", "Settings button clicked")
-                    // Implement action if needed
+                    // TODO Implement action if needed
                 },
                 icon = R.drawable.settingsicon,
                 contentDescription = "Settings"
@@ -78,7 +77,7 @@ fun MainScreen() {
         DividerLine()
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Timer section
+        // Pomodoro Timer Sektion
         PomodoroTimer(
             timeInMillis = timeLeftInMillis,
             timerRunning = timerRunning,
@@ -101,11 +100,14 @@ fun MainScreen() {
         ) {
             Log.d("MainScreen", "Reset button clicked")
             timer?.cancel()
-            timeLeftInMillis = 25 * 60 * 1000L // Setze die Zeit zurück auf 25 Minuten
+            timeLeftInMillis = 25 * 60 * 1000L
             timerRunning = false
         }
 
-        Spacer(modifier = Modifier.weight(1f)) // Spacer to push content to top
+        Spacer(modifier = Modifier.height(16.dp))
+        DividerLine()
+
+        Spacer(modifier = Modifier.weight(1f)) // Spacer um den Timer nach oben zu schieben
     }
 }
 
@@ -117,17 +119,6 @@ fun PomodoroTimer(
     onStopTimer: () -> Unit,
     onResetTimer: () -> Unit
 ) {
-    var timer: CountDownTimer? by remember { mutableStateOf(null) }
-
-    /*LaunchedEffect(timerRunning) {
-        if (timerRunning) {
-            timer = startTimer(currentTime) { millisUntilFinished ->
-                currentTime = millisUntilFinished
-            }
-        } else {
-            timer?.cancel()
-        }
-    }*/
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
@@ -143,11 +134,30 @@ fun PomodoroTimer(
                 color = Color.Red
             )
 
-            Text(
-                text = formatTime(timeInMillis),
-                style = MaterialTheme.typography.headlineLarge,
-                color = white
-            )
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = "Arbeitsphase", // TODO Hier variable für die aktuelle Arbeitsphase einfügen
+                    modifier = Modifier.offset(y = (8).dp),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = lightGrey
+                )
+
+                Text(
+                    text = formatTime(timeInMillis),
+                    style = MaterialTheme.typography.headlineLarge,
+                    fontSize = 60.sp,
+                    color = white
+                )
+
+                Text(
+                    text = "Runde: 2", // TODO Hier Variable für die aktuelle Runde einfügen
+                    modifier = Modifier.offset(y = (-8).dp),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = lightGrey
+                )
+            }
         }
 
         Row(
@@ -161,6 +171,8 @@ fun PomodoroTimer(
                 text = "Reset",
                 backgroundColor = resetButton
             )
+
+            Spacer(modifier = Modifier.width(140.dp))
 
             if (!timerRunning) {
                 RoundedButton(
@@ -196,7 +208,7 @@ fun startTimer(totalTimeInMillis: Long, onTick: (Long) -> Unit): CountDownTimer 
         }
 
         override fun onFinish() {
-            // Optionally handle timer finish event
+            // Aktion nachdem der Timer abgelaufen ist hier noch implementieren
         }
     }.start()
 }
@@ -221,9 +233,9 @@ fun RoundedButton(
 fun PomodoroTitle(name: String, modifier: Modifier = Modifier) {
     Text(
         text = name,
-        color = white, // Set text color to white
-        fontSize = 38.sp, // Increase text size
-        fontWeight = FontWeight.Normal, // Make text bold
+        color = white,
+        fontSize = 38.sp,
+        fontWeight = FontWeight.Normal,
         modifier = modifier
     )
 }
@@ -232,8 +244,8 @@ fun PomodoroTitle(name: String, modifier: Modifier = Modifier) {
 fun DividerLine() {
     Box(
         modifier = Modifier
-            .width(350.dp) // width of the line
-            .height(1.dp) // height of the line
+            .width(350.dp)
+            .height(1.dp)
             .background(Color.Gray)
     )
 }
@@ -257,6 +269,8 @@ fun RoundedIconButton(
     )
 }
 
+
+//Preview Funktionen
 @Preview(showBackground = true)
 @Composable
 fun PomodoroTitlePreview() {
