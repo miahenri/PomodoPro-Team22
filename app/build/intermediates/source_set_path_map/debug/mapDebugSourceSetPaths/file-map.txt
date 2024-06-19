@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 com.example.pomodoro_22.app-resValues-0 /Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodoro-22/app/build/generated/res/resValues/debug
 com.example.pomodoro_22.app-packageDebugResources-1 /Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodoro-22/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
 com.example.pomodoro_22.app-packageDebugResources-2 /Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodoro-22/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
@@ -45,3 +46,52 @@ com.example.pomodoro_22.app-ui-unit-release-43 /Users/ricardotimm/Documents/cach
 com.example.pomodoro_22.app-startup-runtime-1.1.1-44 /Users/ricardotimm/Documents/caches/transforms-3/fa87f7a8cb9de9fa94e97d0a6f128299/transformed/startup-runtime-1.1.1/res
 com.example.pomodoro_22.app-ui-util-release-45 /Users/ricardotimm/Documents/caches/transforms-3/fce84fbdbdf1771ff58fe565bc6dc66e/transformed/ui-util-release/res
 com.example.pomodoro_22.app-ui-graphics-release-46 /Users/ricardotimm/Documents/caches/transforms-3/ffd17fd862a142454d2ff9ca429b2a18/transformed/ui-graphics-release/res
+=======
+com.example.pomodoro_22.app-lifecycle-viewmodel-ktx-2.7.0-0 /Users/mia/.gradle/caches/transforms-3/018f10cc39d8e28c511c501259d1cc4f/transformed/lifecycle-viewmodel-ktx-2.7.0/res
+com.example.pomodoro_22.app-emoji2-1.4.0-1 /Users/mia/.gradle/caches/transforms-3/07ec7de3eb5082b2045c6c24d562903c/transformed/emoji2-1.4.0/res
+com.example.pomodoro_22.app-material3-1.1.1-2 /Users/mia/.gradle/caches/transforms-3/087811eb651ce90308ee087b423b0af0/transformed/material3-1.1.1/res
+com.example.pomodoro_22.app-profileinstaller-1.3.1-3 /Users/mia/.gradle/caches/transforms-3/09ffe637bfb0ac7a70a60f772482dc6d/transformed/profileinstaller-1.3.1/res
+com.example.pomodoro_22.app-ui-text-release-4 /Users/mia/.gradle/caches/transforms-3/0d8ec8cc716cd71273fcfe61d0013df8/transformed/ui-text-release/res
+com.example.pomodoro_22.app-lifecycle-runtime-2.7.0-5 /Users/mia/.gradle/caches/transforms-3/16d6073024c7d1697a7eefddb69cf00e/transformed/lifecycle-runtime-2.7.0/res
+com.example.pomodoro_22.app-material-release-6 /Users/mia/.gradle/caches/transforms-3/27517ed5a0ad14338243019a23fc912d/transformed/material-release/res
+com.example.pomodoro_22.app-runtime-release-7 /Users/mia/.gradle/caches/transforms-3/27967f429f0881e7feb9c1207a89ffaf/transformed/runtime-release/res
+com.example.pomodoro_22.app-activity-1.9.0-8 /Users/mia/.gradle/caches/transforms-3/2971d7573a8f2293b87dd040a68c2b76/transformed/activity-1.9.0/res
+com.example.pomodoro_22.app-runtime-saveable-release-9 /Users/mia/.gradle/caches/transforms-3/299cb4fb2d12b9f15a9808bce4dbc65d/transformed/runtime-saveable-release/res
+com.example.pomodoro_22.app-foundation-layout-release-10 /Users/mia/.gradle/caches/transforms-3/2d52c940d3bd37519d566516a42c1470/transformed/foundation-layout-release/res
+com.example.pomodoro_22.app-annotation-experimental-1.4.0-11 /Users/mia/.gradle/caches/transforms-3/3641256c335f6e4716c4e2e8d84307cc/transformed/annotation-experimental-1.4.0/res
+com.example.pomodoro_22.app-lifecycle-runtime-ktx-2.7.0-12 /Users/mia/.gradle/caches/transforms-3/395c024d958a0f76b9adad0691d0fd58/transformed/lifecycle-runtime-ktx-2.7.0/res
+com.example.pomodoro_22.app-ui-release-13 /Users/mia/.gradle/caches/transforms-3/4143d3747a525bcb928ec16ffd408421/transformed/ui-release/res
+com.example.pomodoro_22.app-customview-poolingcontainer-1.0.0-14 /Users/mia/.gradle/caches/transforms-3/46649803c1d3e3df89396620d2e82bf8/transformed/customview-poolingcontainer-1.0.0/res
+com.example.pomodoro_22.app-lifecycle-process-2.7.0-15 /Users/mia/.gradle/caches/transforms-3/4b11d22735c42b052c888153d7ad1ca4/transformed/lifecycle-process-2.7.0/res
+com.example.pomodoro_22.app-foundation-release-16 /Users/mia/.gradle/caches/transforms-3/4b5a6f663ca79b3df8b641013f87a3ad/transformed/foundation-release/res
+com.example.pomodoro_22.app-activity-ktx-1.9.0-17 /Users/mia/.gradle/caches/transforms-3/5db65e4824c4c32f486b005c59400377/transformed/activity-ktx-1.9.0/res
+com.example.pomodoro_22.app-material-ripple-release-18 /Users/mia/.gradle/caches/transforms-3/5fae1a6403226e5df722288a7fee705e/transformed/material-ripple-release/res
+com.example.pomodoro_22.app-lifecycle-viewmodel-compose-2.7.0-19 /Users/mia/.gradle/caches/transforms-3/6216487f241342cc3b96fad52514c07d/transformed/lifecycle-viewmodel-compose-2.7.0/res
+com.example.pomodoro_22.app-ui-tooling-data-release-20 /Users/mia/.gradle/caches/transforms-3/64069bf62632cdd3ec473cb844b4e64d/transformed/ui-tooling-data-release/res
+com.example.pomodoro_22.app-savedstate-ktx-1.2.1-21 /Users/mia/.gradle/caches/transforms-3/6641b9d0c3aee21816ae0f42f8122a9e/transformed/savedstate-ktx-1.2.1/res
+com.example.pomodoro_22.app-ui-test-manifest-1.5.0-22 /Users/mia/.gradle/caches/transforms-3/75ef34fc6cb1f7bd7bc4162f123d8798/transformed/ui-test-manifest-1.5.0/res
+com.example.pomodoro_22.app-animation-core-release-23 /Users/mia/.gradle/caches/transforms-3/7f99fb10950b577654a7dec3b76a23cd/transformed/animation-core-release/res
+com.example.pomodoro_22.app-ui-geometry-release-24 /Users/mia/.gradle/caches/transforms-3/844d42b25cb41a7b44de0b712cdd2f38/transformed/ui-geometry-release/res
+com.example.pomodoro_22.app-core-1.13.1-25 /Users/mia/.gradle/caches/transforms-3/88ec96f78c207b752709e0d5ed3b0274/transformed/core-1.13.1/res
+com.example.pomodoro_22.app-lifecycle-viewmodel-savedstate-2.7.0-26 /Users/mia/.gradle/caches/transforms-3/942d39a87da120041ad3c72f63f77e1e/transformed/lifecycle-viewmodel-savedstate-2.7.0/res
+com.example.pomodoro_22.app-ui-tooling-release-27 /Users/mia/.gradle/caches/transforms-3/945e5e5a76ddefac0690ddc937e5c823/transformed/ui-tooling-release/res
+com.example.pomodoro_22.app-savedstate-1.2.1-28 /Users/mia/.gradle/caches/transforms-3/a8259452ae92eb59405eed697a97bc22/transformed/savedstate-1.2.1/res
+com.example.pomodoro_22.app-lifecycle-viewmodel-2.7.0-29 /Users/mia/.gradle/caches/transforms-3/a82a6f8c6b66f8c8d11965d4a7ead296/transformed/lifecycle-viewmodel-2.7.0/res
+com.example.pomodoro_22.app-ui-tooling-preview-release-30 /Users/mia/.gradle/caches/transforms-3/a975a667cd51168b4d209b1208798b88/transformed/ui-tooling-preview-release/res
+com.example.pomodoro_22.app-core-ktx-1.13.1-31 /Users/mia/.gradle/caches/transforms-3/b33d36d52776ed81bedacb8367e1f8aa/transformed/core-ktx-1.13.1/res
+com.example.pomodoro_22.app-activity-compose-1.9.0-32 /Users/mia/.gradle/caches/transforms-3/c2779cd0e7f0664505cdb15edcda700b/transformed/activity-compose-1.9.0/res
+com.example.pomodoro_22.app-core-runtime-2.2.0-33 /Users/mia/.gradle/caches/transforms-3/cc84afaccf38c46b8a4a6e7c37557af2/transformed/core-runtime-2.2.0/res
+com.example.pomodoro_22.app-lifecycle-livedata-core-2.7.0-34 /Users/mia/.gradle/caches/transforms-3/d1a989a2d84903b3d6633c0855b7d99f/transformed/lifecycle-livedata-core-2.7.0/res
+com.example.pomodoro_22.app-material-icons-core-release-35 /Users/mia/.gradle/caches/transforms-3/db83a1ae77b765281098283de44b9862/transformed/material-icons-core-release/res
+com.example.pomodoro_22.app-animation-release-36 /Users/mia/.gradle/caches/transforms-3/e95d9797b88426e6dca326247312d562/transformed/animation-release/res
+com.example.pomodoro_22.app-ui-unit-release-37 /Users/mia/.gradle/caches/transforms-3/ea08a351f9d08a4f06ce52c8322ec28b/transformed/ui-unit-release/res
+com.example.pomodoro_22.app-startup-runtime-1.1.1-38 /Users/mia/.gradle/caches/transforms-3/fa87f7a8cb9de9fa94e97d0a6f128299/transformed/startup-runtime-1.1.1/res
+com.example.pomodoro_22.app-ui-util-release-39 /Users/mia/.gradle/caches/transforms-3/fce84fbdbdf1771ff58fe565bc6dc66e/transformed/ui-util-release/res
+com.example.pomodoro_22.app-ui-graphics-release-40 /Users/mia/.gradle/caches/transforms-3/ffd17fd862a142454d2ff9ca429b2a18/transformed/ui-graphics-release/res
+com.example.pomodoro_22.app-resValues-41 /Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/build/generated/res/resValues/debug
+com.example.pomodoro_22.app-packageDebugResources-42 /Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.example.pomodoro_22.app-packageDebugResources-43 /Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.example.pomodoro_22.app-debug-44 /Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/build/intermediates/merged_res/debug/mergeDebugResources
+com.example.pomodoro_22.app-debug-45 /Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/src/debug/res
+com.example.pomodoro_22.app-main-46 /Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/src/main/res
+>>>>>>> 31930f0dd076c9a4c0e6298ec10742d153a0f93a

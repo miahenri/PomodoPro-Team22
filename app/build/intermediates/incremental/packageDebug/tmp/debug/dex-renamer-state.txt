@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Wed Jun 19 11:40:38 CEST 2024
 base.0=/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodoro-22/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodoro-22/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
@@ -7,6 +8,17 @@ base.4=/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodoro-22/app/build/int
 base.5=/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodoro-22/app/build/intermediates/dex/debug/mergeProjectDexDebug/6/classes.dex
 base.6=/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodoro-22/app/build/intermediates/dex/debug/mergeProjectDexDebug/8/classes.dex
 base.7=/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodoro-22/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+=======
+#Tue Jun 18 19:51:09 CEST 2024
+base.0=/Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.2=/Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/build/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
+base.3=/Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/build/intermediates/dex/debug/mergeProjectDexDebug/14/classes.dex
+base.4=/Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/build/intermediates/dex/debug/mergeProjectDexDebug/15/classes.dex
+base.5=/Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/build/intermediates/dex/debug/mergeProjectDexDebug/6/classes.dex
+base.6=/Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/build/intermediates/dex/debug/mergeProjectDexDebug/8/classes.dex
+base.7=/Users/mia/Desktop/SEMESTER-4/moco/pomodoro-22/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+>>>>>>> 31930f0dd076c9a4c0e6298ec10742d153a0f93a
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=1/classes.dex
