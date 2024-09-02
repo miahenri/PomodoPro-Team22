@@ -24,6 +24,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.pomodoro_22.R
 import com.example.pomodoro_22.ui.main.ui.theme.*
 import com.example.pomodoro_22.ui.settings.SettingsScreen
+import com.example.pomodoro_22.ui.task.TaskScreen
 import com.example.pomodoro_22.util.totalTimeInMillis
 
 class MainActivity : ComponentActivity() {
@@ -39,6 +40,7 @@ class MainActivity : ComponentActivity() {
                     NavHost(navController = navController, startDestination = "main_screen") {
                         composable("main_screen") { MainScreen(navController) }
                         composable("settings_screen") { SettingsScreen(navController) }
+                        composable("task_screen") { TaskScreen(navController) }
                     }
                 }
             }
@@ -67,7 +69,7 @@ fun MainScreen(navController: NavHostController) {
             RoundedIconButton(
                 onClick = {
                     Log.d("MainScreen", "Add Task button clicked")
-                    // TODO Implement action if needed
+                    navController.navigate("task_screen")
                 },
                 icon = R.drawable.addtaskicon,
                 contentDescription = "Go to Tasks"

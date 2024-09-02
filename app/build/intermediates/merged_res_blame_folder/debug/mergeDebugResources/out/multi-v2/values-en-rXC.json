@@ -1,44 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.pomodoro_22.app-mergeDebugResources-2:/values-en-rXC/values-en-rXC.xml",
+            "outputFile": "com.example.pomodoro_22.app-mergeDebugResources-59:/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
-                    "source": "/Users/ricardotimm/Documents/caches/transforms-3/c1f3cf6279553a958ae244122eb474c3/transformed/preference-1.2.0/res/values-en-rXC/values-en-rXC.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "105,276,465,642,894,1196,1378",
-                        "endColumns": "170,188,176,251,301,181,172",
-                        "endOffsets": "271,460,637,889,1191,1373,1546"
-                    },
-                    "to": {
-                        "startLines": "43,79,85,88,97,115,116",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "8339,15859,16980,17489,19228,22846,23028",
-                        "endColumns": "170,188,176,251,301,181,172",
-                        "endOffsets": "8505,16043,17152,17736,19525,23023,23196"
-                    }
-                },
-                {
-                    "source": "/Users/ricardotimm/Documents/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/res/values-en-rXC/values-en-rXC.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,251,456,657,858,1065,1270,1482",
-                        "endColumns": "195,204,200,200,206,204,211,203",
-                        "endOffsets": "246,451,652,853,1060,1265,1477,1681"
-                    },
-                    "to": {
-                        "startLines": "33,34,35,36,37,38,39,95",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "6355,6551,6756,6957,7158,7365,7570,18823",
-                        "endColumns": "195,204,200,200,206,204,211,203",
-                        "endOffsets": "6546,6751,6952,7153,7360,7565,7777,19022"
-                    }
-                },
-                {
-                    "source": "/Users/ricardotimm/Documents/caches/transforms-3/152a02f6a1d4fec159113fef1fa637f9/transformed/appcompat-1.1.0/res/values-en-rXC/values-en-rXC.xml",
+                    "source": "/Users/cosima/.gradle/caches/transforms-3/152a02f6a1d4fec159113fef1fa637f9/transformed/appcompat-1.1.0/res/values-en-rXC/values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -55,7 +21,41 @@
                     }
                 },
                 {
-                    "source": "/Users/ricardotimm/Documents/caches/transforms-3/cb6548783153826f88c78571fbc4d438/transformed/material3-1.1.1/res/values-en-rXC/values-en-rXC.xml",
+                    "source": "/Users/cosima/.gradle/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/res/values-en-rXC/values-en-rXC.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,251,456,657,858,1065,1270,1482",
+                        "endColumns": "195,204,200,200,206,204,211,203",
+                        "endOffsets": "246,451,652,853,1060,1265,1477,1681"
+                    },
+                    "to": {
+                        "startLines": "33,34,35,36,37,38,39,95",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "6355,6551,6756,6957,7158,7365,7570,18823",
+                        "endColumns": "195,204,200,200,206,204,211,203",
+                        "endOffsets": "6546,6751,6952,7153,7360,7565,7777,19022"
+                    }
+                },
+                {
+                    "source": "/Users/cosima/.gradle/caches/transforms-3/a2d7fdab19867a9a63155a657d135450/transformed/ui-release/res/values-en-rXC/values-en-rXC.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,296,481,678,880,1067,1252,1445,1633,1820,1985,2152,2333,2518,2684,2863,3030",
+                        "endColumns": "190,184,196,201,186,184,192,187,186,164,166,180,184,165,178,166,237",
+                        "endOffsets": "291,476,673,875,1062,1247,1440,1628,1815,1980,2147,2328,2513,2679,2858,3025,3263"
+                    },
+                    "to": {
+                        "startLines": "40,41,75,76,78,81,82,83,84,86,87,89,90,93,98,99,100",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "7782,7973,15099,15296,15672,16227,16412,16605,16793,17157,17322,17741,17922,18472,19530,19709,19876",
+                        "endColumns": "190,184,196,201,186,184,192,187,186,164,166,180,184,165,178,166,237",
+                        "endOffsets": "7968,8153,15291,15493,15854,16407,16600,16788,16975,17317,17484,17917,18102,18633,19704,19871,20109"
+                    }
+                },
+                {
+                    "source": "/Users/cosima/.gradle/caches/transforms-3/cb6548783153826f88c78571fbc4d438/transformed/material3-1.1.1/res/values-en-rXC/values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -72,20 +72,20 @@
                     }
                 },
                 {
-                    "source": "/Users/ricardotimm/Documents/caches/transforms-3/a2d7fdab19867a9a63155a657d135450/transformed/ui-release/res/values-en-rXC/values-en-rXC.xml",
+                    "source": "/Users/cosima/.gradle/caches/transforms-3/c1f3cf6279553a958ae244122eb474c3/transformed/preference-1.2.0/res/values-en-rXC/values-en-rXC.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,296,481,678,880,1067,1252,1445,1633,1820,1985,2152,2333,2518,2684,2863,3030",
-                        "endColumns": "190,184,196,201,186,184,192,187,186,164,166,180,184,165,178,166,237",
-                        "endOffsets": "291,476,673,875,1062,1247,1440,1628,1815,1980,2147,2328,2513,2679,2858,3025,3263"
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "105,276,465,642,894,1196,1378",
+                        "endColumns": "170,188,176,251,301,181,172",
+                        "endOffsets": "271,460,637,889,1191,1373,1546"
                     },
                     "to": {
-                        "startLines": "40,41,75,76,78,81,82,83,84,86,87,89,90,93,98,99,100",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "7782,7973,15099,15296,15672,16227,16412,16605,16793,17157,17322,17741,17922,18472,19530,19709,19876",
-                        "endColumns": "190,184,196,201,186,184,192,187,186,164,166,180,184,165,178,166,237",
-                        "endOffsets": "7968,8153,15291,15493,15854,16407,16600,16788,16975,17317,17484,17917,18102,18633,19704,19871,20109"
+                        "startLines": "43,79,85,88,97,115,116",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "8339,15859,16980,17489,19228,22846,23028",
+                        "endColumns": "170,188,176,251,301,181,172",
+                        "endOffsets": "8505,16043,17152,17736,19525,23023,23196"
                     }
                 }
             ]

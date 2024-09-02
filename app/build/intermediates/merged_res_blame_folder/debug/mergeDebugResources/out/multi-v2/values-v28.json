@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.pomodoro_22.app-mergeDebugResources-2:/values-v28/values-v28.xml",
+            "outputFile": "com.example.pomodoro_22.app-mergeDebugResources-59:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "/Users/ricardotimm/Documents/caches/transforms-3/152a02f6a1d4fec159113fef1fa637f9/transformed/appcompat-1.1.0/res/values-v28/values-v28.xml",
+                    "source": "/Users/cosima/.gradle/caches/transforms-3/152a02f6a1d4fec159113fef1fa637f9/transformed/appcompat-1.1.0/res/values-v28/values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",
