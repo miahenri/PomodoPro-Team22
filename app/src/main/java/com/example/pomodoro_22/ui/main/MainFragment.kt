@@ -54,6 +54,8 @@ fun MainScreen(navController: NavHostController, taskViewModel: TaskViewModel) {
             )
         }
 
+        DividerLine()
+
         // Timer operations
         PomodoroTimer(
             timeInMillis = timeLeftInMillis,
@@ -78,6 +80,8 @@ fun MainScreen(navController: NavHostController, taskViewModel: TaskViewModel) {
             timeLeftInMillis = 25 * 60 * 1000L
             timerRunning = false
         }
+
+        DividerLine()
 
         // Log tasks being displayed and any updates
         TaskList(
