@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,18 +18,37 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.pomodoro_22.R
 import com.example.pomodoro_22.ui.main.ui.theme.*
-import com.example.pomodoro_22.ui.settings.SettingsScreen
+import com.example.pomodoro_22.ui.settings.SettingsFragment
+import com.example.pomodoro_22.ui.task.TaskFragment
+import com.example.pomodoro_22.ui.task.TaskViewModel
+import com.example.pomodoro_22.ui.task.TaskViewModelFactory
+import com.example.pomodoro_22.repository.TaskRepository
+import com.example.pomodoro_22.ui.task.*
 import com.example.pomodoro_22.util.totalTimeInMillis
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Initialize the repository
+        Log.d("MainActivity", "Initializing TaskRepository")
+        val taskRepository = TaskRepository(applicationContext)
+
+        // Use TaskViewModelFactory to create the ViewModel
+        Log.d("MainActivity", "Creating TaskViewModelFactory")
+        val taskViewModelFactory = TaskViewModelFactory(taskRepository)
+        val taskViewModel: TaskViewModel = ViewModelProvider(this, taskViewModelFactory).get(TaskViewModel::class.java)
+
+        Log.d("MainActivity", "TaskViewModel created")
+
         setContent {
             Pomodoro22Theme {
                 val navController = rememberNavController()
@@ -37,8 +57,23 @@ class MainActivity : ComponentActivity() {
                     color = darkMode
                 ) {
                     NavHost(navController = navController, startDestination = "main_screen") {
-                        composable("main_screen") { MainScreen(navController) }
-                        composable("settings_screen") { SettingsScreen(navController) }
+                        composable("main_screen") {
+                            Log.d("Navigation", "Navigated to MainScreen")
+                            MainScreen(navController, taskViewModel)
+                        }
+
+                        composable("settings_screen") {
+                            Log.d("Navigation", "Navigated to SettingsFragment")
+                            SettingsFragment(navController)
+                        }
+
+                        composable("task_screen") {
+                            Log.d("Navigation", "Navigated to TaskFragment")
+                            TaskFragment(
+                                navController = navController,
+                                taskViewModel = taskViewModel
+                            )
+                        }
                     }
                 }
             }
@@ -47,7 +82,9 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainScreen(navController: NavHostController) {
+fun MainScreen(navController: NavHostController, taskViewModel: TaskViewModel) {
+    Log.d("MainScreen", "MainScreen Composable created")
+
     var timerRunning by remember { mutableStateOf(false) }
     var timer: CountDownTimer? by remember { mutableStateOf(null) }
     var timeLeftInMillis by remember { mutableStateOf(25 * 60 * 1000L) }
@@ -66,8 +103,8 @@ fun MainScreen(navController: NavHostController) {
         ) {
             RoundedIconButton(
                 onClick = {
-                    Log.d("MainScreen", "Add Task button clicked")
-                    // TODO Implement action if needed
+                    Log.d("MainScreen", "Navigating to Task screen")
+                    navController.navigate("task_screen")
                 },
                 icon = R.drawable.addtaskicon,
                 contentDescription = "Go to Tasks"
@@ -77,62 +114,59 @@ fun MainScreen(navController: NavHostController) {
 
             RoundedIconButton(
                 onClick = {
-                    Log.d("MainScreen", "Settings button clicked")
+                    Log.d("MainScreen", "Navigating to Settings screen")
                     navController.navigate("settings_screen")
                 },
                 icon = R.drawable.settingsicon,
                 contentDescription = "Settings"
             )
         }
-        Spacer(modifier = Modifier.height(16.dp))
-        DividerLine()
-        Spacer(modifier = Modifier.height(16.dp))
 
+        // Timer operations
         PomodoroTimer(
             timeInMillis = timeLeftInMillis,
             timerRunning = timerRunning,
             onStartTimer = {
-                Log.d("MainScreen", "Start button clicked")
-                if (timer != null) {
-                    timer?.cancel()
-                }
+                Log.d("PomodoroTimer", "Start button clicked, starting timer")
+                timer?.cancel()
                 timer = startTimer(timeLeftInMillis) { millisUntilFinished ->
                     timeLeftInMillis = millisUntilFinished
+                    Log.d("PomodoroTimer", "Timer tick: $timeLeftInMillis milliseconds left")
                 }
                 timerRunning = true
             },
             onStopTimer = {
-                Log.d("MainScreen", "Stop button clicked")
+                Log.d("PomodoroTimer", "Stop button clicked, stopping timer")
                 timer?.cancel()
                 timerRunning = false
             }
         ) {
-            Log.d("MainScreen", "Reset button clicked")
+            Log.d("PomodoroTimer", "Reset button clicked, resetting timer")
             timer?.cancel()
             timeLeftInMillis = 25 * 60 * 1000L
             timerRunning = false
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        DividerLine()
-        WorkPhases()
-        DividerLine()
-        TaskList()
-
-        Spacer(modifier = Modifier.weight(1f))
+        // Log tasks being displayed and any updates
+        TaskList(
+            tasks = taskViewModel.tasks.observeAsState(emptyList()).value,
+            onTaskClick = { updatedTask ->
+                Log.d("MainScreen", "Task clicked: ${updatedTask.id}")
+                taskViewModel.updateTask(updatedTask)
+            },
+            onTaskDelete = { task ->
+                Log.d("MainScreen", "Task deleted: ${task.id}")
+                taskViewModel.deleteTask(task)
+            }
+        )
     }
 }
 
 @Composable
 fun WorkPhases() {
-    // TODO Implementieren hier die Arbeitsphasen
+    // TODO: Implement work phases here
 }
 
-@Composable
-fun TaskList() {
-    // TODO Implementieren hier eine Liste von Tasks die im Taskrepositroy gespeichert sind
-}
 
 @Composable
 fun PomodoroTimer(

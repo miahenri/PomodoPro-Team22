@@ -14,9 +14,13 @@ drawable arrowbackicon
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable settingsicon
+id add_task_button
 id pomodoroText
 id settingsButton
 id taskButton
+id task_input
+id task_recycler_view
+layout fragment_task
 layout mainactivity_layout
 mipmap ic_launcher
 mipmap ic_launcher_round

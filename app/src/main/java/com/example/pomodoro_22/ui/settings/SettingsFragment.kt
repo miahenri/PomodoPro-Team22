@@ -2,7 +2,6 @@ package com.example.pomodoro_22.ui.settings
 
 import android.util.Log
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -14,7 +13,7 @@ import com.example.pomodoro_22.ui.main.PomodoroTitle
 import com.example.pomodoro_22.ui.main.RoundedIconButton
 
 @Composable
-fun SettingsScreen(navController: NavHostController) {
+fun SettingsFragment(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
