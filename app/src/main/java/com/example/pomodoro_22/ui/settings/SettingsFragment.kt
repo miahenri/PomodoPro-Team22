@@ -2,7 +2,7 @@ package com.example.pomodoro_22.ui.settings
 
 import android.util.Log
 import androidx.compose.foundation.layout.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -12,8 +12,11 @@ import com.example.pomodoro_22.ui.main.DividerLine
 import com.example.pomodoro_22.ui.main.PomodoroTitle
 import com.example.pomodoro_22.ui.main.RoundedIconButton
 
+
 @Composable
 fun SettingsFragment(navController: NavHostController) {
+    var notificationsEnabled by remember { mutableStateOf(false) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -28,8 +31,8 @@ fun SettingsFragment(navController: NavHostController) {
         ) {
             RoundedIconButton(
                 onClick = {
-                    Log.d("SettingsScreen", "Back button clicked")
-                    navController.popBackStack() // Navigate back to the previous screen
+                    Log.d("TasksScreen", "Back button clicked")
+                    navController.popBackStack()
                 },
                 icon = R.drawable.arrowbackicon,
                 contentDescription = "Go back"
@@ -37,21 +40,40 @@ fun SettingsFragment(navController: NavHostController) {
 
             PomodoroTitle(name = "Einstellungen")
 
-            RoundedIconButton(
-                onClick = {
-                    Log.d("SettingsScreen", "Back button clicked")
-                    navController.popBackStack() // Navigate back to the previous screen
-                },
-                icon = R.drawable.arrowbackicon,
-                contentDescription = "Go back"
-            )
+            Spacer(modifier = Modifier.size(56.dp))
         }
-        Spacer(modifier = Modifier.height(16.dp))
+
         DividerLine()
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Add your settings content here...
+        CustomTextWithInputField(
+            largeText = "Pomodoros bis zur Pause",
+            placeholderText = "Anzahl"
+        )
+
+        CustomTextWithInputField(
+            largeText = "Arbeitszeit",
+            placeholderText = "Dauer in Minuten"
+        )
+
+        CustomTextWithInputField(
+            largeText = "Kurze Pause",
+            placeholderText = "Dauer in Minuten"
+        )
+
+        CustomTextWithInputField(
+            largeText = "Lange Pause",
+            placeholderText = "Dauer in Minuten"
+        )
+
+        NotificationSetting(
+            isEnabled = notificationsEnabled,
+            onToggle = { notificationsEnabled = it }
+        )
 
         Spacer(modifier = Modifier.weight(1f))
     }
 }
+
+
+
