@@ -1,16 +1,23 @@
 package com.example.pomodoro_22.ui.task
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.pomodoro_22.R
 import com.example.pomodoro_22.model.Task
+import com.example.pomodoro_22.ui.main.DividerLine
+import com.example.pomodoro_22.ui.main.PomodoroTitle
+import com.example.pomodoro_22.ui.main.RoundedIconButton
 
 @Composable
 fun TaskFragment(navController: NavHostController, taskViewModel: TaskViewModel) {
@@ -19,45 +26,119 @@ fun TaskFragment(navController: NavHostController, taskViewModel: TaskViewModel)
     // Observe tasks from ViewModel
     val tasks by taskViewModel.tasks.observeAsState(emptyList())
 
+    // Separate tasks into completed and incomplete
+    val completedTasks = tasks.filter { it.isCompleted }
+    val incompleteTasks = tasks.filter { !it.isCompleted }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(horizontal = 10.dp)
+            .padding(top = 20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Input field for adding a new task
-        TextField(
-            value = taskName,
-            onValueChange = { taskName = it },
-            label = { Text("Task Name") },
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
+        // Top Row: Back button, title, and placeholder for spacing
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,  // Ensure elements are spaced
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            RoundedIconButton(
+                onClick = {
+                    Log.d("TasksScreen", "Back button clicked")
+                    navController.popBackStack() // Navigate back to the previous screen
+                },
+                icon = R.drawable.arrowbackicon,
+                contentDescription = "Go back"
+            )
 
-        // Display the list of tasks
+            // Center the title between the buttons
+            PomodoroTitle(name = "Tasks")
+
+            Spacer(modifier = Modifier.size(56.dp))  // Placeholder to balance space
+        }
+
+        DividerLine()
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Row to align Task Input Field and Add Task Button
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 10.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // Task Input Field
+            TextField(
+                value = taskName,
+                onValueChange = { taskName = it },
+                label = { Text("Add task here...") },
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(end = 8.dp)
+            )
+
+            // Rounded Icon Button to Add Task
+            RoundedIconButton(
+                onClick = {
+                    if (taskName.isNotEmpty()) {
+                        taskViewModel.addTask(Task(name = taskName))
+                        taskName = "" // Clear the input after adding
+                    }
+                },
+                icon = R.drawable.addicon,  // Assuming you have an ic_add resource with a "+" icon
+                contentDescription = "Add Task"
+            )
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // List of incomplete tasks
         TaskList(
-            tasks = tasks,
-            onTaskClick = { task -> taskViewModel.updateTask(task) },
+            tasks = incompleteTasks,
+            onTaskClick = { task ->
+                // Update task status to completed
+                taskViewModel.updateTask(task.copy(isCompleted = true))
+            },
             onTaskDelete = { task -> taskViewModel.deleteTask(task) }
         )
 
-        // Button to add a new task
-        Button(
-            onClick = {
-                if (taskName.isNotEmpty()) {
-                    taskViewModel.addTask(Task(name = taskName))
-                    taskName = "" // Clear the input after adding
-                }
-            },
-            modifier = Modifier.padding(top = 16.dp)
+        Spacer(modifier = Modifier.height(32.dp))
+
+        // Row for "Erledigt" title and delete button for completed tasks
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,  // Ensure elements are spaced
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(text = "Add Task")
+            RoundedIconButton(
+                onClick = {
+                    Log.d("TasksScreen", "Delete all completed tasks clicked")
+                    completedTasks.forEach { task ->
+                        taskViewModel.deleteTask(task)
+                    }
+                },
+                icon = R.drawable.deleteicon,
+                contentDescription = "Delete completed tasks"
+            )
+
+            // Center the title between the buttons
+            PomodoroTitle(name = "Erledigt")
+
+            Spacer(modifier = Modifier.size(56.dp))  // Placeholder to balance space
         }
 
-        // Button to go back (example navigation logic)
-        Button(
-            onClick = { navController.popBackStack() },
-            modifier = Modifier.padding(top = 16.dp)
-        ) {
-            Text(text = "Go Back")
-        }
+        DividerLine()
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // List of completed tasks
+        TaskList(
+            tasks = completedTasks,
+            onTaskClick = { task ->
+                // Update task status to incomplete (move back to upper list)
+                taskViewModel.updateTask(task.copy(isCompleted = false))
+            },
+            onTaskDelete = { task -> taskViewModel.deleteTask(task) }
+        )
     }
 }

@@ -746,6 +746,7 @@ int drawable abc_textfield_search_activated_mtrl_alpha 0x7f08004c
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f08004d
 int drawable abc_textfield_search_material 0x7f08004e
 int drawable abc_vector_test 0x7f08004f
+int drawable addicon 0x7f080075
 int drawable addtaskicon 0x7f080050
 int drawable arrowbackicon 0x7f080051
 int drawable btn_checkbox_checked_mtrl 0x7f080052
@@ -756,6 +757,8 @@ int drawable btn_radio_off_mtrl 0x7f080056
 int drawable btn_radio_off_to_on_mtrl_animation 0x7f080057
 int drawable btn_radio_on_mtrl 0x7f080058
 int drawable btn_radio_on_to_off_mtrl_animation 0x7f080059
+int drawable checkicon 0x7f080076
+int drawable deleteicon 0x7f080077
 int drawable ic_arrow_down_24dp 0x7f08005a
 int drawable ic_call_answer 0x7f08005b
 int drawable ic_call_answer_low 0x7f08005c
