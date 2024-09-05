@@ -31,6 +31,10 @@ class MainActivity : ComponentActivity() {
         val taskViewModelFactory = TaskViewModelFactory(taskRepository)
         val taskViewModel: TaskViewModel = ViewModelProvider(this, taskViewModelFactory).get(TaskViewModel::class.java)
 
+        //TODO: Implement TimerViewModel
+        //val timerviewmodelfactory
+        //val timerviewmodel
+
         Log.d("MainActivity", "TaskViewModel created")
 
         setContent {
