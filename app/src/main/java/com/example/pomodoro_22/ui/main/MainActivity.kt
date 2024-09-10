@@ -33,8 +33,7 @@ class MainActivity : ComponentActivity() {
 
         //TODO: Implement TimerViewModel
         //val timerviewmodelfactory
-        //val timerviewmodel
-
+        val mainViewModel: MainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         Log.d("MainActivity", "TaskViewModel created")
 
         setContent {
@@ -47,7 +46,7 @@ class MainActivity : ComponentActivity() {
                     NavHost(navController = navController, startDestination = "main_screen") {
                         composable("main_screen") {
                             Log.d("Navigation", "Navigated to MainScreen")
-                            MainScreen(navController, taskViewModel)
+                            MainScreen(navController, taskViewModel, mainViewModel)
                         }
 
                         composable("settings_screen") {

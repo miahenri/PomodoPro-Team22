@@ -4,7 +4,7 @@
             "outputFile": "com.example.pomodoro_22.app-mergeDebugResources-66:/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "/Users/cosima/.gradle/caches/transforms-3/d694d2360bb0193d0ab2113628026fee/transformed/appcompat-1.6.1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "source": "/Users/mia/.gradle/caches/transforms-3/d694d2360bb0193d0ab2113628026fee/transformed/appcompat-1.6.1/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

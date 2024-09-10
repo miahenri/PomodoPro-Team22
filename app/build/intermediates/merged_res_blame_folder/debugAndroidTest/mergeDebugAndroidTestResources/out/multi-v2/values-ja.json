@@ -4,7 +4,7 @@
             "outputFile": "com.example.pomodoro_22.test.app-mergeDebugAndroidTestResources-32:/values-ja/values-ja.xml",
             "map": [
                 {
-                    "source": "/Users/cosima/.gradle/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/res/values-ja/values-ja.xml",
+                    "source": "/Users/mia/.gradle/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/res/values-ja/values-ja.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/cosima/.gradle/caches/transforms-3/a2d7fdab19867a9a63155a657d135450/transformed/ui-release/res/values-ja/values-ja.xml",
+                    "source": "/Users/mia/.gradle/caches/transforms-3/a2d7fdab19867a9a63155a657d135450/transformed/ui-release/res/values-ja/values-ja.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
