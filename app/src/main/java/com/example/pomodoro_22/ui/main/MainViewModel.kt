@@ -7,6 +7,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.CountDownTimer
@@ -20,40 +21,39 @@ import kotlinx.coroutines.flow.asStateFlow
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewModelScope
+import com.example.pomodoro_22.ui.settings.SettingsViewModel
 
 enum class PomodoroPhase {
     WORK, SHORT_BREAK, LONG_BREAK
 }
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+class MainViewModel(application: Application, private val settingsViewModel: SettingsViewModel) : AndroidViewModel(application) {
 
+    private val sharedPreferences: SharedPreferences = application.getSharedPreferences("pomodoro_prefs", Context.MODE_PRIVATE)
     private val context: Context = application.applicationContext
 
-    init {
-        createNotificationChannel()
-    }
-
     private var timer: CountDownTimer? = null
-
-    // Initial phase is always WORK
-    private val _phase = MutableStateFlow(PomodoroPhase.WORK) // Track current phase
+    private val _phase = MutableStateFlow(PomodoroPhase.WORK)
     val phase = _phase.asStateFlow()
 
-    // Initialize the time based on the WORK phase
-    private val _timeLeftInMillis = MutableStateFlow(totalTimeForCurrentPhase)
+    private val _timeLeftInMillis = MutableStateFlow(settingsViewModel.workTimeMinutes.value * 60 * 1000L)
     val timeLeftInMillis = _timeLeftInMillis.asStateFlow()
 
     private val _timerRunning = MutableStateFlow(false)
     val timerRunning = _timerRunning.asStateFlow()
 
-    private var workSessionCount = 0 // Count how many work sessions have been completed
+    private var completedWorkSessions = 0
 
-    // This property returns the total time of the active phase (work, short break, long break)
+    init {
+        createNotificationChannel()
+    }
+
+    // Returns the total time for the current phase
     val totalTimeForCurrentPhase: Long
         get() = when (_phase.value) {
-            PomodoroPhase.WORK -> 25 * 60 * 1000L
-            PomodoroPhase.SHORT_BREAK -> 5 * 60 * 1000L
-            PomodoroPhase.LONG_BREAK -> 50 * 60 * 1000L
+            PomodoroPhase.WORK -> settingsViewModel.workTimeMinutes.value * 60 * 1000L
+            PomodoroPhase.SHORT_BREAK -> settingsViewModel.shortBreakTimeMinutes.value * 60 * 1000L
+            PomodoroPhase.LONG_BREAK -> settingsViewModel.longBreakTimeMinutes.value * 60 * 1000L
         }
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -64,11 +64,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun startTimer() {
+        // Cancel the existing timer if it's running
         timer?.cancel()
 
-        _timeLeftInMillis.value = totalTimeForCurrentPhase
+        // If the timer was previously stopped, continue from where it left off
+        val remainingTime = _timeLeftInMillis.value
 
-        timer = object : CountDownTimer(_timeLeftInMillis.value, 1000) {
+        // Start a new timer with the remaining time
+        timer = object : CountDownTimer(remainingTime, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 _timeLeftInMillis.value = millisUntilFinished
             }
@@ -76,32 +79,38 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             override fun onFinish() {
                 _timeLeftInMillis.value = 0L
                 _timerRunning.value = false
-                onTimerFinish() // Handle transition to next phase
+                onTimerFinish()
                 showNotification()
             }
         }.start()
+
+        // Set the timer to running
         _timerRunning.value = true
     }
 
     private fun onTimerFinish() {
+        // Ensure workSessionCount is not zero to avoid divide by zero
+        val safeWorkSessionCount = if (settingsViewModel.workSessionCount.value <= 0) 4 else settingsViewModel.workSessionCount.value
+
         when (_phase.value) {
             PomodoroPhase.WORK -> {
-                workSessionCount++
-                _phase.value = if (workSessionCount % 4 == 0) {
+                completedWorkSessions++
+                _phase.value = if (completedWorkSessions % safeWorkSessionCount == 0) {
                     PomodoroPhase.LONG_BREAK
                 } else {
                     PomodoroPhase.SHORT_BREAK
                 }
             }
-            PomodoroPhase.SHORT_BREAK -> {
-                _phase.value = PomodoroPhase.WORK
-            }
+            PomodoroPhase.SHORT_BREAK -> _phase.value = PomodoroPhase.WORK
             PomodoroPhase.LONG_BREAK -> {
                 _phase.value = PomodoroPhase.WORK
-                workSessionCount = 0 // Reset work session count after long break
+                completedWorkSessions = 0
             }
         }
-        startTimer() // Automatically start the next phase
+
+        // Reset the time for the new phase
+        _timeLeftInMillis.value = totalTimeForCurrentPhase
+        startTimer()  // Start the timer for the next phase
     }
 
     fun stopTimer() {
@@ -112,14 +121,39 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun resetTimer() {
         timer?.cancel()
         _phase.value = PomodoroPhase.WORK
-        _timeLeftInMillis.value = 25 * 60 * 1000L
+        _timeLeftInMillis.value = settingsViewModel.workTimeMinutes.value * 60 * 1000L
         _timerRunning.value = false
-        workSessionCount = 0
+        completedWorkSessions = 0
     }
 
     fun skipPhase() {
-        onTimerFinish()
+        // Cancel the current timer
+        timer?.cancel()
+
+        // Transition to the next phase
+        transitionToNextPhase()
+
+        // Reset the time for the new phase and start the timer
+        _timeLeftInMillis.value = totalTimeForCurrentPhase
+        startTimer()  // Start the timer for the next phase
     }
+
+    private fun transitionToNextPhase() {
+        val safeWorkSessionCount = if (settingsViewModel.workSessionCount.value <= 0) 4 else settingsViewModel.workSessionCount.value
+
+        when (_phase.value) {
+            PomodoroPhase.WORK -> {
+                completedWorkSessions++
+                _phase.value = if (completedWorkSessions % safeWorkSessionCount == 0) {
+                    PomodoroPhase.LONG_BREAK
+                } else {
+                    PomodoroPhase.SHORT_BREAK
+                }
+            }
+            PomodoroPhase.SHORT_BREAK, PomodoroPhase.LONG_BREAK -> _phase.value = PomodoroPhase.WORK
+        }
+    }
+
 
     private fun showNotification() {
         val intent = Intent(context, MainActivity::class.java).apply {
@@ -152,5 +186,4 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             notificationManager.createNotificationChannel(channel)
         }
     }
-
 }

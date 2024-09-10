@@ -14,6 +14,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.pomodoro_22.ui.main.ui.theme.*
 import com.example.pomodoro_22.ui.settings.SettingsFragment
+import com.example.pomodoro_22.ui.settings.SettingsViewModel
+import com.example.pomodoro_22.ui.settings.SettingsViewModelFactory
 import com.example.pomodoro_22.ui.task.TaskFragment
 import com.example.pomodoro_22.ui.task.TaskViewModel
 import com.example.pomodoro_22.ui.task.TaskViewModelFactory
@@ -33,7 +35,10 @@ class MainActivity : ComponentActivity() {
         val taskViewModelFactory = TaskViewModelFactory(taskRepository)
         val taskViewModel: TaskViewModel = ViewModelProvider(this, taskViewModelFactory).get(TaskViewModel::class.java)
 
-        val mainViewModelFactory = MainViewModelFactory(application)
+        val settingsViewModelFactory = SettingsViewModelFactory(application)
+        val settingsViewModel: SettingsViewModel = ViewModelProvider(this, settingsViewModelFactory).get(SettingsViewModel::class.java)
+
+        val mainViewModelFactory = MainViewModelFactory(application, settingsViewModel)
         mainViewModel = ViewModelProvider(this, mainViewModelFactory).get(MainViewModel::class.java)
         Log.d("MainActivity", "TaskViewModel created")
 
@@ -56,7 +61,7 @@ class MainActivity : ComponentActivity() {
 
                         composable("settings_screen") {
                             Log.d("Navigation", "Navigated to SettingsFragment")
-                            SettingsFragment(navController)
+                            SettingsFragment(navController, settingsViewModel, mainViewModel)
                         }
 
                         composable("task_screen") {

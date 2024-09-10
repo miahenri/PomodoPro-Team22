@@ -27,9 +27,12 @@ import com.example.pomodoro_22.ui.main.DividerLine
 import com.example.pomodoro_22.ui.main.ui.theme.*
 
 @Composable
-fun CustomTextWithInputField(largeText: String, placeholderText: String) {
-    var textState by remember { mutableStateOf(TextFieldValue("")) }
-
+fun CustomTextWithInputField(
+    largeText: String,
+    placeholderText: String,
+    value: String,              // New parameter for value binding
+    onValueChanged: (String) -> Unit  // New parameter for handling value change
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -38,26 +41,27 @@ fun CustomTextWithInputField(largeText: String, placeholderText: String) {
     ) {
         Text(
             text = largeText,
-            fontSize = 20.sp,  // Schriftgröße 20 Pixel für den großen Text
+            fontSize = 20.sp,  // Font size for the large text
             color = Color.White
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        // TextField now bound to the value and updates using the onValueChanged callback
         TextField(
-            value = textState,
-            onValueChange = { textState = it },
+            value = value,  // Current value displayed in the TextField
+            onValueChange = { onValueChanged(it) },  // Call the onValueChanged function
             placeholder = {
                 Text(
                     text = placeholderText,
-                    fontSize = 10.sp,  // Schriftgröße 12 Pixel für den kleineren Text
+                    fontSize = 10.sp,  // Smaller font size for the placeholder
                     color = Color.LightGray
                 )
             },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp)
-                .background(darkMode) // Hintergrundfarbe darkMode
+                .background(darkMode) // Background color
         )
 
         Spacer(modifier = Modifier.height(10.dp))
