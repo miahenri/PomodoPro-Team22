@@ -17,6 +17,7 @@ drawable deleteicon
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable settingsicon
+drawable skipicon
 id add_task_button
 id pomodoroText
 id settingsButton

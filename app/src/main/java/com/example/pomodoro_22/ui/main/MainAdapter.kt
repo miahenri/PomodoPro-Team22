@@ -22,9 +22,12 @@ import com.example.pomodoro_22.util.totalTimeInMillis
 fun PomodoroTimer(
     timeInMillis: Long,
     timerRunning: Boolean,
+    currentPhase: PomodoroPhase,
+    totalTimeForCurrentPhase: Long,  // Pass total time for the current phase
     onStartTimer: () -> Unit,
     onStopTimer: () -> Unit,
-    onResetTimer: () -> Unit
+    onResetTimer: () -> Unit,
+    onSkip: () -> Unit  // Add skip action here
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
@@ -34,17 +37,24 @@ fun PomodoroTimer(
             modifier = Modifier.padding(vertical = 20.dp)
         ) {
             CircularProgressIndicator(
-                progress = if (timeInMillis > 0) timeInMillis.toFloat() / totalTimeInMillis else 0f,
+                progress = if (timeInMillis > 0) timeInMillis.toFloat() / totalTimeForCurrentPhase else 0f,
                 modifier = Modifier.size(250.dp),
                 strokeWidth = 5.dp,
-                color = Color.Red
+                color = when (currentPhase) {
+                    PomodoroPhase.WORK -> circleRed
+                    PomodoroPhase.SHORT_BREAK, PomodoroPhase.LONG_BREAK -> circleBlue
+                }
             )
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "Arbeitsphase", // TODO Hier variable für die aktuelle Arbeitsphase einfügen
+                    text = when (currentPhase) {
+                        PomodoroPhase.WORK -> "Arbeitsphase"
+                        PomodoroPhase.SHORT_BREAK -> "Kurze Pause"
+                        PomodoroPhase.LONG_BREAK -> "Lange Pause"
+                    },
                     modifier = Modifier.offset(y = (8).dp),
                     style = MaterialTheme.typography.bodyMedium,
                     color = lightGrey
@@ -56,13 +66,6 @@ fun PomodoroTimer(
                     fontSize = 60.sp,
                     color = white
                 )
-
-                Text(
-                    text = "Runde: 2", // TODO Hier Variable für die aktuelle Runde einfügen
-                    modifier = Modifier.offset(y = (-8).dp),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = lightGrey
-                )
             }
         }
 
@@ -71,28 +74,29 @@ fun PomodoroTimer(
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             RoundedButton(
-                onClick = {
-                    onResetTimer()
-                },
+                onClick = { onResetTimer() },
                 text = "Reset",
                 backgroundColor = resetButton
             )
 
-            Spacer(modifier = Modifier.width(140.dp))
+
+            // Subtle Skip Button
+            SubtleSkipButton(
+                onClick = { onSkip() },
+                icon = R.drawable.skipicon, // Replace with your skip icon
+                contentDescription = "Skip Phase"
+            )
+            //Spacer(modifier = Modifier.width(140.dp))
 
             if (!timerRunning) {
                 RoundedButton(
-                    onClick = {
-                        onStartTimer()
-                    },
+                    onClick = { onStartTimer() },
                     text = "Start",
                     backgroundColor = startButton
                 )
             } else {
                 RoundedButton(
-                    onClick = {
-                        onStopTimer()
-                    },
+                    onClick = { onStopTimer() },
                     text = "Stop",
                     backgroundColor = stopButton
                 )
@@ -105,18 +109,6 @@ fun formatTime(millis: Long): String {
     val minutes = (millis / 1000) / 60
     val seconds = (millis / 1000) % 60
     return String.format("%02d:%02d", minutes, seconds)
-}
-
-fun startTimer(totalTimeInMillis: Long, onTick: (Long) -> Unit): CountDownTimer {
-    return object : CountDownTimer(totalTimeInMillis, 1000) {
-        override fun onTick(millisUntilFinished: Long) {
-            onTick(millisUntilFinished)
-        }
-
-        override fun onFinish() {
-            // Aktion nachdem der Timer abgelaufen ist hier noch implementieren
-        }
-    }.start()
 }
 
 @Composable
@@ -170,6 +162,27 @@ fun RoundedIconButton(
                 painter = painterResource(id = icon),
                 contentDescription = contentDescription,
                 tint = white
+            )
+        }
+    )
+}
+
+@Composable
+fun SubtleSkipButton(
+    onClick: () -> Unit,
+    icon: Int,
+    contentDescription: String
+) {
+    IconButton(
+        onClick = onClick,
+        modifier = Modifier
+            .size(40.dp) // Make the button smaller
+            .padding(horizontal = 8.dp), // Add padding for spacing
+        content = {
+            Icon(
+                painter = painterResource(id = icon),
+                contentDescription = contentDescription,
+                tint = Color.LightGray // Use a light gray color to make it subtle
             )
         }
     )

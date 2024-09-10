@@ -783,6 +783,7 @@ int drawable notification_tile_bg 0x7f080071
 int drawable notify_panel_notification_icon_bg 0x7f080072
 int drawable preference_list_divider_material 0x7f080073
 int drawable settingsicon 0x7f080074
+int drawable skipicon 0x7f080078
 int drawable test_level_drawable 0x7f080075
 int drawable tooltip_frame_dark 0x7f080076
 int drawable tooltip_frame_light 0x7f080077

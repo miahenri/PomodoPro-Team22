@@ -17,10 +17,10 @@ fun MainScreen(
     taskViewModel: TaskViewModel,
     timerViewModel: MainViewModel
 ) {
-    Log.d("MainScreen", "MainScreen Composable created")
-
     val timerRunning by timerViewModel.timerRunning.collectAsState()
     val timeLeftInMillis by timerViewModel.timeLeftInMillis.collectAsState()
+    val currentPhase by timerViewModel.phase.collectAsState()
+    val totalTimeForCurrentPhase = timerViewModel.totalTimeForCurrentPhase
 
     Column(
         modifier = Modifier
@@ -35,9 +35,7 @@ fun MainScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             RoundedIconButton(
-                onClick = {
-                    navController.navigate("task_screen")
-                },
+                onClick = { navController.navigate("task_screen") },
                 icon = com.example.pomodoro_22.R.drawable.addtaskicon,
                 contentDescription = "Go to Tasks"
             )
@@ -45,9 +43,7 @@ fun MainScreen(
             PomodoroTitle(name = "Pomodoro")
 
             RoundedIconButton(
-                onClick = {
-                    navController.navigate("settings_screen")
-                },
+                onClick = { navController.navigate("settings_screen") },
                 icon = com.example.pomodoro_22.R.drawable.settingsicon,
                 contentDescription = "Settings"
             )
@@ -55,25 +51,23 @@ fun MainScreen(
 
         DividerLine()
 
-        // Timer operations
         PomodoroTimer(
             timeInMillis = timeLeftInMillis,
             timerRunning = timerRunning,
+            currentPhase = currentPhase,
+            totalTimeForCurrentPhase = totalTimeForCurrentPhase,  // Pass the dynamic total time here
             onStartTimer = { timerViewModel.startTimer() },
             onStopTimer = { timerViewModel.stopTimer() },
-            onResetTimer = { timerViewModel.resetTimer() }
+            onResetTimer = { timerViewModel.resetTimer() },
+            onSkip = { timerViewModel.skipPhase() }  // Add skip action here
         )
 
         DividerLine()
 
         TaskList(
             tasks = taskViewModel.tasks.observeAsState(emptyList()).value,
-            onTaskClick = { updatedTask ->
-                taskViewModel.updateTask(updatedTask)
-            },
-            onTaskDelete = { task ->
-                taskViewModel.deleteTask(task)
-            }
+            onTaskClick = { updatedTask -> taskViewModel.updateTask(updatedTask) },
+            onTaskDelete = { task -> taskViewModel.deleteTask(task) }
         )
     }
 }
