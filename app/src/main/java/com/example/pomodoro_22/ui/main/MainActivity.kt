@@ -1,5 +1,6 @@
 package com.example.pomodoro_22.ui.main
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -19,6 +20,7 @@ import com.example.pomodoro_22.ui.task.TaskViewModelFactory
 import com.example.pomodoro_22.repository.TaskRepository
 
 class MainActivity : ComponentActivity() {
+    private lateinit var mainViewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,10 +33,13 @@ class MainActivity : ComponentActivity() {
         val taskViewModelFactory = TaskViewModelFactory(taskRepository)
         val taskViewModel: TaskViewModel = ViewModelProvider(this, taskViewModelFactory).get(TaskViewModel::class.java)
 
-        //TODO: Implement TimerViewModel
-        //val timerviewmodelfactory
-        val mainViewModel: MainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        val mainViewModelFactory = MainViewModelFactory(application)
+        mainViewModel = ViewModelProvider(this, mainViewModelFactory).get(MainViewModel::class.java)
         Log.d("MainActivity", "TaskViewModel created")
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            mainViewModel.checkAndRequestNotificationPermission(this)
+        }
 
         setContent {
             Pomodoro22Theme {

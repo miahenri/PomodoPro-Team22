@@ -1,6 +1,5 @@
 package com.example.pomodoro_22.ui.main
 
-import android.os.CountDownTimer
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -69,36 +68,41 @@ fun PomodoroTimer(
             }
         }
 
+        // Button row with aligned buttons
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),  // More padding on the edges
+            horizontalArrangement = Arrangement.SpaceBetween,  // Spread buttons to edges
+            verticalAlignment = Alignment.CenterVertically  // Align all buttons vertically
         ) {
             RoundedButton(
                 onClick = { onResetTimer() },
                 text = "Reset",
-                backgroundColor = resetButton
+                backgroundColor = resetButton,
+                modifier = Modifier.align(Alignment.CenterVertically) // Aligning reset button
             )
 
-
-            // Subtle Skip Button
             SubtleSkipButton(
                 onClick = { onSkip() },
                 icon = R.drawable.skipicon, // Replace with your skip icon
-                contentDescription = "Skip Phase"
+                contentDescription = "Skip Phase",
+                modifier = Modifier.align(Alignment.CenterVertically) // Aligning skip button
             )
-            //Spacer(modifier = Modifier.width(140.dp))
 
             if (!timerRunning) {
                 RoundedButton(
                     onClick = { onStartTimer() },
                     text = "Start",
-                    backgroundColor = startButton
+                    backgroundColor = startButton,
+                    modifier = Modifier.align(Alignment.CenterVertically) // Aligning start button
                 )
             } else {
                 RoundedButton(
                     onClick = { onStopTimer() },
                     text = "Stop",
-                    backgroundColor = stopButton
+                    backgroundColor = stopButton,
+                    modifier = Modifier.align(Alignment.CenterVertically) // Aligning stop button
                 )
             }
         }
@@ -115,17 +119,19 @@ fun formatTime(millis: Long): String {
 fun RoundedButton(
     onClick: () -> Unit,
     text: String,
-    backgroundColor: Color
+    backgroundColor: Color,
+    modifier: Modifier = Modifier // Add modifier parameter
 ) {
     Button(
         onClick = onClick,
-        modifier = Modifier
+        modifier = modifier // Use the passed modifier
             .padding(vertical = 8.dp, horizontal = 16.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor)
     ) {
         Text(text = text, color = Color.White)
     }
 }
+
 
 @Composable
 fun PomodoroTitle(name: String, modifier: Modifier = Modifier) {
@@ -171,11 +177,12 @@ fun RoundedIconButton(
 fun SubtleSkipButton(
     onClick: () -> Unit,
     icon: Int,
-    contentDescription: String
+    contentDescription: String,
+    modifier: Modifier = Modifier // Add modifier parameter
 ) {
     IconButton(
         onClick = onClick,
-        modifier = Modifier
+        modifier = modifier // Use the passed modifier
             .size(40.dp) // Make the button smaller
             .padding(horizontal = 8.dp), // Add padding for spacing
         content = {
@@ -187,3 +194,4 @@ fun SubtleSkipButton(
         }
     )
 }
+
