@@ -1,7 +1,7 @@
 package com.example.pomodoro_22.ui.main
 
+import android.app.ActivityManager
 import android.content.Context
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +10,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -25,7 +24,19 @@ import com.example.pomodoro_22.ui.task.TaskViewModelFactory
 import com.example.pomodoro_22.repository.TaskRepository
 
 class MainActivity : ComponentActivity() {
+
+    private fun isServiceRunning(serviceClass: Class<*>): Boolean {
+        val activityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        for (service in activityManager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.name == service.service.className) {
+                return true
+            }
+        }
+        return false
+    }
+
     private lateinit var mainViewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -45,13 +56,14 @@ class MainActivity : ComponentActivity() {
         mainViewModel = ViewModelProvider(this, mainViewModelFactory).get(MainViewModel::class.java)
         Log.d("MainActivity", "TaskViewModel created")
 
-        // Restore the time left from SharedPreferences
-        val sharedPreferences = getSharedPreferences("pomodoro_prefs", Context.MODE_PRIVATE)
-        val timeLeft = sharedPreferences.getLong("time_left", 0) // 0 als Standardwert, wenn nichts gespeichert ist
-
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             mainViewModel.checkAndRequestNotificationPermission(this)
+        }
+
+        // Check if the foreground service is running
+        if (isServiceRunning(PomodoroForegroundService::class.java)) {
+            // Restore the state in MainViewModel
+            mainViewModel.restoreTimerState()
         }
 
         setContent {

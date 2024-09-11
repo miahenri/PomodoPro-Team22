@@ -1,6 +1,7 @@
 package com.example.pomodoro_22.ui.main
 
 import android.app.Activity
+import android.app.ActivityManager
 import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -22,6 +23,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewModelScope
 import com.example.pomodoro_22.ui.settings.SettingsViewModel
+import com.example.pomodoro_22.ui.main.MainActivity
 
 enum class PomodoroPhase {
     WORK, SHORT_BREAK, LONG_BREAK
@@ -46,6 +48,7 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
 
     init {
         createNotificationChannel()
+        restoreTimerState()
     }
 
     // Returns the total time for the current phase
@@ -56,6 +59,21 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
             PomodoroPhase.LONG_BREAK -> settingsViewModel.longBreakTimeMinutes.value * 60 * 1000L
         }
 
+    private fun isServiceRunning(serviceClass: Class<*>): Boolean {
+        val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        for (service in activityManager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.name == service.service.className) {
+                return true
+            }
+        }
+        return false
+    }
+
+    fun setTimeLeft(timeLeft: Long) {
+        _timeLeftInMillis.value = timeLeft
+        startTimer()
+    }
+
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     fun checkAndRequestNotificationPermission(activity: Activity) {
         if (ContextCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
@@ -63,10 +81,20 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
         }
     }
 
-    fun setTimeLeft(timeLeft: Long) {
-        _timeLeftInMillis.value = timeLeft
-        startTimer()
+    fun restoreTimerState() {
+        // Retrieve saved state from SharedPreferences
+        _timeLeftInMillis.value = sharedPreferences.getLong("timeLeftInMillis", settingsViewModel.workTimeMinutes.value * 60 * 1000L)
+        val phaseName = sharedPreferences.getString("currentPhase", PomodoroPhase.WORK.name)
+        _phase.value = PomodoroPhase.valueOf(phaseName ?: PomodoroPhase.WORK.name)
+        _timerRunning.value = sharedPreferences.getBoolean("timerRunning", false)
+        completedWorkSessions = sharedPreferences.getInt("completedWorkSessions", 0)
+
+        // If the service is still running, continue the timer
+        if (_timerRunning.value && isServiceRunning(PomodoroForegroundService::class.java)) {
+            startTimer()  // Resync the UI timer with the service
+        }
     }
+
 
     fun startTimer() {
         // Cancel the existing timer if it's running

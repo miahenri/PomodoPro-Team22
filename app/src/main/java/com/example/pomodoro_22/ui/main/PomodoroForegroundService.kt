@@ -30,6 +30,7 @@ class PomodoroForegroundService : Service() {
         return START_NOT_STICKY
     }
 
+
     // Check if notification permissions are granted (Android 13+)
     private fun checkNotificationPermission(): Boolean {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -51,6 +52,19 @@ class PomodoroForegroundService : Service() {
         }
     }
 
+    private var completedWorkSessions: Int = 0
+
+    private fun saveTimerStateToSharedPreferences() {
+        val sharedPreferences = getSharedPreferences("pomodoro_prefs", Context.MODE_PRIVATE)
+        sharedPreferences.edit().apply {
+            putLong("timeLeftInMillis", timeLeftInMillis)
+            putString("currentPhase", PomodoroPhase.WORK.name)  // Save the current phase
+            putBoolean("timerRunning", true)  // Indicate the timer is running
+            putInt("completedWorkSessions", completedWorkSessions)  // Save completed work sessions
+            apply()
+        }
+    }
+
     private fun startForegroundService() {
         val notification = createNotification(timeLeftInMillis)
         startForeground(NOTIFICATION_ID, notification)
@@ -59,6 +73,7 @@ class PomodoroForegroundService : Service() {
         timer = object : CountDownTimer(timeLeftInMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timeLeftInMillis = millisUntilFinished
+                saveTimerStateToSharedPreferences() // Save the timer state
                 updateNotification(millisUntilFinished)
             }
 

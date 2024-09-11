@@ -4,7 +4,7 @@
             "outputFile": "com.example.pomodoro_22.app-mergeDebugResources-66:/values-v17/values-v17.xml",
             "map": [
                 {
-                    "source": "/Users/mia/.gradle/caches/transforms-3/d694d2360bb0193d0ab2113628026fee/transformed/appcompat-1.6.1/res/values-v17/values-v17.xml",
+                    "source": "/Users/cosima/.gradle/caches/transforms-3/d694d2360bb0193d0ab2113628026fee/transformed/appcompat-1.6.1/res/values-v17/values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
