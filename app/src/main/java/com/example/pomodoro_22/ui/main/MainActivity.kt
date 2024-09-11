@@ -1,5 +1,7 @@
 package com.example.pomodoro_22.ui.main
 
+import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +10,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -41,6 +44,11 @@ class MainActivity : ComponentActivity() {
         val mainViewModelFactory = MainViewModelFactory(application, settingsViewModel)
         mainViewModel = ViewModelProvider(this, mainViewModelFactory).get(MainViewModel::class.java)
         Log.d("MainActivity", "TaskViewModel created")
+
+        // Restore the time left from SharedPreferences
+        val sharedPreferences = getSharedPreferences("pomodoro_prefs", Context.MODE_PRIVATE)
+        val timeLeft = sharedPreferences.getLong("time_left", 0) // 0 als Standardwert, wenn nichts gespeichert ist
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             mainViewModel.checkAndRequestNotificationPermission(this)

@@ -63,6 +63,11 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
         }
     }
 
+    fun setTimeLeft(timeLeft: Long) {
+        _timeLeftInMillis.value = timeLeft
+        startTimer()
+    }
+
     fun startTimer() {
         // Cancel the existing timer if it's running
         timer?.cancel()
