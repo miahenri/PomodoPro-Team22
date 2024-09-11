@@ -786,6 +786,7 @@ drawable preference_list_divider_material
 drawable settingsicon
 drawable skipicon
 drawable test_level_drawable
+drawable timericon
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT

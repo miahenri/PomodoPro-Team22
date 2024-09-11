@@ -67,6 +67,9 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
         // Cancel the existing timer if it's running
         timer?.cancel()
 
+        // Start the foreground service
+        startForegroundService(context, _timeLeftInMillis.value)
+
         // If the timer was previously stopped, continue from where it left off
         val remainingTime = _timeLeftInMillis.value
 
@@ -79,6 +82,9 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
             override fun onFinish() {
                 _timeLeftInMillis.value = 0L
                 _timerRunning.value = false
+
+                // Stop the foreground service when the timer finishes
+                stopForegroundService(context)
                 onTimerFinish()
                 showNotification()
             }
@@ -116,6 +122,9 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
     fun stopTimer() {
         timer?.cancel()
         _timerRunning.value = false
+
+        // Stop the foreground service when the timer is manually stopped
+        stopForegroundService(context)
     }
 
     fun resetTimer() {
@@ -186,4 +195,20 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
             notificationManager.createNotificationChannel(channel)
         }
     }
+
+    fun startForegroundService(context: Context, timeLeftInMillis: Long) {
+        val intent = Intent(context, PomodoroForegroundService::class.java).apply {
+            action = PomodoroForegroundService.ACTION_START
+            putExtra("time_left", timeLeftInMillis)
+        }
+        ContextCompat.startForegroundService(context, intent)
+    }
+
+    fun stopForegroundService(context: Context) {
+        val intent = Intent(context, PomodoroForegroundService::class.java).apply {
+            action = PomodoroForegroundService.ACTION_STOP
+        }
+        context.startService(intent)
+    }
+
 }

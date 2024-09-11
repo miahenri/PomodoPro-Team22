@@ -8,7 +8,10 @@
         android:minSdkVersion="24"
         android:targetSdkVersion="34" />
 
+    <!-- Add permissions for foreground services and notifications -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
 
     <permission
         android:name="com.example.pomodoro_22.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -29,11 +32,13 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Pomodoro22" >
-        <activity
-            android:name="com.example.pomodoro_22.ui.settings.SettingsFragment"
-            android:exported="false"
-            android:label="@string/title_activity_settings_fragment"
-            android:theme="@style/Theme.Pomodoro22" />
+
+        <!-- Add your foreground service declaration here -->
+        <service
+            android:name="com.example.pomodoro_22.ui.main.PomodoroForegroundService"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <!-- MainActivity declaration -->
         <activity
             android:name="com.example.pomodoro_22.ui.main.MainActivity"
             android:exported="true"

@@ -1,106 +1,110 @@
 [
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.example.pomodoro_22.app-debug-68:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.pomodoro_22.app-debug-68:/drawable_addicon.png.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/drawable/addicon.png"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/layout_mainactivity_layout.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/layout/mainactivity_layout.xml"
+        "merged": "com.example.pomodoro_22.app-debug-68:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "com.example.pomodoro_22.app-debug-68:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/drawable_deleteicon.png.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/drawable/deleteicon.png"
+        "merged": "com.example.pomodoro_22.app-debug-68:/drawable_skipicon.png.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/drawable/skipicon.png"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "com.example.pomodoro_22.app-debug-68:/xml_backup_rules.xml.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/xml/backup_rules.xml"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "com.example.pomodoro_22.app-debug-68:/layout_fragment_task.xml.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/layout/fragment_task.xml"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "com.example.pomodoro_22.app-debug-68:/drawable_deleteicon.png.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/drawable/deleteicon.png"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/xml_backup_rules.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/xml/backup_rules.xml"
+        "merged": "com.example.pomodoro_22.app-debug-68:/drawable_addtaskicon.png.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/drawable/addtaskicon.png"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.example.pomodoro_22.app-debug-68:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/layout_fragment_task.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/layout/fragment_task.xml"
+        "merged": "com.example.pomodoro_22.app-debug-68:/drawable_timericon.png.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/drawable/timericon.png"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "com.example.pomodoro_22.app-debug-68:/xml_root_preferences.xml.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/xml/root_preferences.xml"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "com.example.pomodoro_22.app-debug-68:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "com.example.pomodoro_22.app-debug-68:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/drawable_addicon.png.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/drawable/addicon.png"
+        "merged": "com.example.pomodoro_22.app-debug-68:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/drawable_skipicon.png.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/drawable/skipicon.png"
+        "merged": "com.example.pomodoro_22.app-debug-68:/drawable_checkicon.png.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/drawable/checkicon.png"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/xml_root_preferences.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/xml/root_preferences.xml"
+        "merged": "com.example.pomodoro_22.app-debug-68:/drawable_settingsicon.png.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/drawable/settingsicon.png"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "com.example.pomodoro_22.app-debug-68:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/drawable/ic_launcher_foreground.xml"
+        "merged": "com.example.pomodoro_22.app-debug-68:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/drawable_settingsicon.png.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/drawable/settingsicon.png"
+        "merged": "com.example.pomodoro_22.app-debug-68:/drawable_arrowbackicon.png.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/drawable/arrowbackicon.png"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/drawable/ic_launcher_background.xml"
+        "merged": "com.example.pomodoro_22.app-debug-68:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/drawable_addtaskicon.png.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/drawable/addtaskicon.png"
+        "merged": "com.example.pomodoro_22.app-debug-68:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.pomodoro_22.app-debug-68:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/xml/data_extraction_rules.xml"
+        "merged": "com.example.pomodoro_22.app-debug-68:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/drawable_checkicon.png.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/drawable/checkicon.png"
+        "merged": "com.example.pomodoro_22.app-debug-68:/layout_mainactivity_layout.xml.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/layout/mainactivity_layout.xml"
     },
     {
-        "merged": "com.example.pomodoro_22.app-debug-4:/drawable_arrowbackicon.png.flat",
-        "source": "com.example.pomodoro_22.app-main-6:/drawable/arrowbackicon.png"
+        "merged": "com.example.pomodoro_22.app-debug-68:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.pomodoro_22.app-debug-68:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.pomodoro_22.app-main-70:/mipmap-xxxhdpi/ic_launcher.webp"
     }
 ]
