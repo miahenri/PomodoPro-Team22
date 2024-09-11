@@ -69,11 +69,6 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
         return false
     }
 
-    fun setTimeLeft(timeLeft: Long) {
-        _timeLeftInMillis.value = timeLeft
-        startTimer()
-    }
-
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     fun checkAndRequestNotificationPermission(activity: Activity) {
         if (ContextCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
