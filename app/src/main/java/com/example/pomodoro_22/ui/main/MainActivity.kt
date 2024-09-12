@@ -25,6 +25,7 @@ import com.example.pomodoro_22.repository.TaskRepository
 
 class MainActivity : ComponentActivity() {
 
+    // Checks if the foreground service is running by looking for it in the running services.
     private fun isServiceRunning(serviceClass: Class<*>): Boolean {
         val activityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         for (service in activityManager.getRunningServices(Integer.MAX_VALUE)) {
@@ -40,32 +41,36 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Initialize the repository
+        // Initialize TaskRepository and TaskViewModel for managing tasks
         Log.d("MainActivity", "Initializing TaskRepository")
         val taskRepository = TaskRepository(applicationContext)
 
-        // Use TaskViewModelFactory to create the ViewModel
+        // TaskViewModelFactory is used to create the TaskViewModel instance
         Log.d("MainActivity", "Creating TaskViewModelFactory")
         val taskViewModelFactory = TaskViewModelFactory(taskRepository)
         val taskViewModel: TaskViewModel = ViewModelProvider(this, taskViewModelFactory).get(TaskViewModel::class.java)
 
+        // SettingsViewModel manages user preferences (Pomodoro settings)
         val settingsViewModelFactory = SettingsViewModelFactory(application)
         val settingsViewModel: SettingsViewModel = ViewModelProvider(this, settingsViewModelFactory).get(SettingsViewModel::class.java)
 
+        // MainViewModel manages the core Pomodoro timer logic and interacts with Task and Settings ViewModels
         val mainViewModelFactory = MainViewModelFactory(application, settingsViewModel)
         mainViewModel = ViewModelProvider(this, mainViewModelFactory).get(MainViewModel::class.java)
         Log.d("MainActivity", "TaskViewModel created")
 
+        // Request notification permissions if the Android version is TIRAMISU or higher
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             mainViewModel.checkAndRequestNotificationPermission(this)
         }
 
-        // Check if the foreground service is running
+        // Check if the foreground service is already running (in case the app was restarted or resumed)
         if (isServiceRunning(PomodoroForegroundService::class.java)) {
-            // Restore the state in MainViewModel
+            // If the service is running, restore the Pomodoro timer state in the ViewModel
             mainViewModel.restoreTimerState()
         }
 
+        // Set up the UI using Jetpack Compose and navigation with NavHost
         setContent {
             Pomodoro22Theme {
                 val navController = rememberNavController()
@@ -73,17 +78,22 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = darkMode
                 ) {
+                    // Define navigation between different screens (Main, Settings, Tasks)
                     NavHost(navController = navController, startDestination = "main_screen") {
+
+                        // Main Pomodoro timer screen
                         composable("main_screen") {
                             Log.d("Navigation", "Navigated to MainScreen")
                             MainScreen(navController, taskViewModel, mainViewModel)
                         }
 
+                        // Settings screen for Pomodoro settings
                         composable("settings_screen") {
                             Log.d("Navigation", "Navigated to SettingsFragment")
                             SettingsFragment(navController, settingsViewModel, mainViewModel)
                         }
 
+                        // Task screen for managing tasks
                         composable("task_screen") {
                             Log.d("Navigation", "Navigated to TaskFragment")
                             TaskFragment(

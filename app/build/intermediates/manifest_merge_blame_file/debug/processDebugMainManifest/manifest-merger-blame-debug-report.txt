@@ -10,180 +10,180 @@
 10
 11    <!-- Add permissions for foreground services and notifications -->
 12    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-12-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:6:5-77
-12-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:6:22-74
+12-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:6:5-77
+12-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:6:22-74
 13    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-13-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:7:5-77
-13-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:7:22-74
+13-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:7:5-77
+13-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:7:22-74
 14    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
-14-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:8:5-91
-14-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:8:22-89
+14-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:8:5-91
+14-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:8:22-89
 15
 16    <permission
-16-->[androidx.core:core:1.13.1] /Users/cosima/.gradle/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+16-->[androidx.core:core:1.13.1] /Users/ricardotimm/Documents/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
 17        android:name="com.example.pomodoro_22.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-17-->[androidx.core:core:1.13.1] /Users/cosima/.gradle/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+17-->[androidx.core:core:1.13.1] /Users/ricardotimm/Documents/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
 18        android:protectionLevel="signature" />
-18-->[androidx.core:core:1.13.1] /Users/cosima/.gradle/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+18-->[androidx.core:core:1.13.1] /Users/ricardotimm/Documents/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
 19
 20    <uses-permission android:name="com.example.pomodoro_22.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-20-->[androidx.core:core:1.13.1] /Users/cosima/.gradle/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
-20-->[androidx.core:core:1.13.1] /Users/cosima/.gradle/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+20-->[androidx.core:core:1.13.1] /Users/ricardotimm/Documents/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+20-->[androidx.core:core:1.13.1] /Users/ricardotimm/Documents/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
 21
 22    <application
-22-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:10:5-39:19
+22-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:10:5-39:19
 23        android:allowBackup="true"
-23-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:11:9-35
+23-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:11:9-35
 24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-24-->[androidx.core:core:1.13.1] /Users/cosima/.gradle/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+24-->[androidx.core:core:1.13.1] /Users/ricardotimm/Documents/caches/transforms-3/10d104d9cbfde753f1cfa7d7d2f8e28b/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 25        android:dataExtractionRules="@xml/data_extraction_rules"
-25-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:12:9-65
+25-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:12:9-65
 26        android:debuggable="true"
 27        android:extractNativeLibs="false"
 28        android:fullBackupContent="@xml/backup_rules"
-28-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:13:9-54
+28-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:13:9-54
 29        android:icon="@mipmap/ic_launcher"
-29-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:14:9-43
+29-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:14:9-43
 30        android:label="@string/app_name"
-30-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:15:9-41
+30-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:15:9-41
 31        android:roundIcon="@mipmap/ic_launcher_round"
-31-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:16:9-54
+31-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:16:9-54
 32        android:supportsRtl="true"
-32-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:17:9-35
+32-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:17:9-35
 33        android:testOnly="true"
 34        android:theme="@style/Theme.Pomodoro22" >
-34-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:18:9-48
+34-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:18:9-48
 35
 36        <!-- Add your foreground service declaration here -->
 37        <service
-37-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:22:9-26:52
+37-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:22:9-26:52
 38            android:name="com.example.pomodoro_22.ui.main.PomodoroForegroundService"
-38-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:23:13-62
+38-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:23:13-62
 39            android:foregroundServiceType="mediaPlayback" />
-39-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:24:13-58
+39-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:24:13-58
 40
 41        <!-- MainActivity declaration -->
 42        <activity
-42-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:29:9-38:20
+42-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:29:9-38:20
 43            android:name="com.example.pomodoro_22.ui.main.MainActivity"
-43-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:30:13-49
+43-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:30:13-49
 44            android:exported="true"
-44-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:31:13-36
+44-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:31:13-36
 45            android:label="@string/title_activity_main"
-45-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:32:13-56
+45-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:32:13-56
 46            android:theme="@style/Theme.Pomodoro22" >
-46-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:33:13-52
+46-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:33:13-52
 47            <intent-filter>
-47-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:34:13-37:29
+47-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:34:13-37:29
 48                <action android:name="android.intent.action.MAIN" />
-48-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:35:17-69
-48-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:35:25-66
+48-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:35:17-69
+48-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:35:25-66
 49
 50                <category android:name="android.intent.category.LAUNCHER" />
-50-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:36:17-77
-50-->/Users/cosima/Desktop/Uni/4-Semester/Mobile-Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:36:27-74
+50-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:36:17-77
+50-->/Users/ricardotimm/Desktop/Uni/Mobile Computing/pomodopro-team22/app/src/main/AndroidManifest.xml:36:27-74
 51            </intent-filter>
 52        </activity>
 53
 54        <service
-54-->[androidx.room:room-runtime:2.6.1] /Users/cosima/.gradle/caches/transforms-3/9f90d466bd4ac75abe539d35b28889db/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+54-->[androidx.room:room-runtime:2.6.1] /Users/ricardotimm/Documents/caches/transforms-3/9f90d466bd4ac75abe539d35b28889db/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
 55            android:name="androidx.room.MultiInstanceInvalidationService"
-55-->[androidx.room:room-runtime:2.6.1] /Users/cosima/.gradle/caches/transforms-3/9f90d466bd4ac75abe539d35b28889db/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+55-->[androidx.room:room-runtime:2.6.1] /Users/ricardotimm/Documents/caches/transforms-3/9f90d466bd4ac75abe539d35b28889db/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
 56            android:directBootAware="true"
-56-->[androidx.room:room-runtime:2.6.1] /Users/cosima/.gradle/caches/transforms-3/9f90d466bd4ac75abe539d35b28889db/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+56-->[androidx.room:room-runtime:2.6.1] /Users/ricardotimm/Documents/caches/transforms-3/9f90d466bd4ac75abe539d35b28889db/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
 57            android:exported="false" />
-57-->[androidx.room:room-runtime:2.6.1] /Users/cosima/.gradle/caches/transforms-3/9f90d466bd4ac75abe539d35b28889db/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+57-->[androidx.room:room-runtime:2.6.1] /Users/ricardotimm/Documents/caches/transforms-3/9f90d466bd4ac75abe539d35b28889db/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
 58
 59        <activity
-59-->[androidx.compose.ui:ui-tooling-android:1.5.0] /Users/cosima/.gradle/caches/transforms-3/627e68bbaa8de2e3a9f54b55fe9e8405/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+59-->[androidx.compose.ui:ui-tooling-android:1.5.0] /Users/ricardotimm/Documents/caches/transforms-3/627e68bbaa8de2e3a9f54b55fe9e8405/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
 60            android:name="androidx.compose.ui.tooling.PreviewActivity"
-60-->[androidx.compose.ui:ui-tooling-android:1.5.0] /Users/cosima/.gradle/caches/transforms-3/627e68bbaa8de2e3a9f54b55fe9e8405/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+60-->[androidx.compose.ui:ui-tooling-android:1.5.0] /Users/ricardotimm/Documents/caches/transforms-3/627e68bbaa8de2e3a9f54b55fe9e8405/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
 61            android:exported="true" />
-61-->[androidx.compose.ui:ui-tooling-android:1.5.0] /Users/cosima/.gradle/caches/transforms-3/627e68bbaa8de2e3a9f54b55fe9e8405/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+61-->[androidx.compose.ui:ui-tooling-android:1.5.0] /Users/ricardotimm/Documents/caches/transforms-3/627e68bbaa8de2e3a9f54b55fe9e8405/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
 62
 63        <provider
-63-->[androidx.emoji2:emoji2:1.4.0] /Users/cosima/.gradle/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+63-->[androidx.emoji2:emoji2:1.4.0] /Users/ricardotimm/Documents/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
 64            android:name="androidx.startup.InitializationProvider"
-64-->[androidx.emoji2:emoji2:1.4.0] /Users/cosima/.gradle/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+64-->[androidx.emoji2:emoji2:1.4.0] /Users/ricardotimm/Documents/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
 65            android:authorities="com.example.pomodoro_22.androidx-startup"
-65-->[androidx.emoji2:emoji2:1.4.0] /Users/cosima/.gradle/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+65-->[androidx.emoji2:emoji2:1.4.0] /Users/ricardotimm/Documents/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
 66            android:exported="false" >
-66-->[androidx.emoji2:emoji2:1.4.0] /Users/cosima/.gradle/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+66-->[androidx.emoji2:emoji2:1.4.0] /Users/ricardotimm/Documents/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
 67            <meta-data
-67-->[androidx.emoji2:emoji2:1.4.0] /Users/cosima/.gradle/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+67-->[androidx.emoji2:emoji2:1.4.0] /Users/ricardotimm/Documents/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
 68                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-68-->[androidx.emoji2:emoji2:1.4.0] /Users/cosima/.gradle/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+68-->[androidx.emoji2:emoji2:1.4.0] /Users/ricardotimm/Documents/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
 69                android:value="androidx.startup" />
-69-->[androidx.emoji2:emoji2:1.4.0] /Users/cosima/.gradle/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+69-->[androidx.emoji2:emoji2:1.4.0] /Users/ricardotimm/Documents/caches/transforms-3/7f09fc6f7447edaf4ebe0854ddd21f86/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
 70            <meta-data
-70-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/cosima/.gradle/caches/transforms-3/af5cdc3c9bd202717099af4509273953/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+70-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/ricardotimm/Documents/caches/transforms-3/af5cdc3c9bd202717099af4509273953/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
 71                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-71-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/cosima/.gradle/caches/transforms-3/af5cdc3c9bd202717099af4509273953/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+71-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/ricardotimm/Documents/caches/transforms-3/af5cdc3c9bd202717099af4509273953/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
 72                android:value="androidx.startup" />
-72-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/cosima/.gradle/caches/transforms-3/af5cdc3c9bd202717099af4509273953/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+72-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/ricardotimm/Documents/caches/transforms-3/af5cdc3c9bd202717099af4509273953/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
 73            <meta-data
-73-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+73-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
 74                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-74-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+74-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
 75                android:value="androidx.startup" />
-75-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+75-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
 76        </provider>
 77
 78        <uses-library
-78-->[androidx.window:window:1.0.0] /Users/cosima/.gradle/caches/transforms-3/14a11a16ce4b7bcac4baba6bfac4d99a/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+78-->[androidx.window:window:1.0.0] /Users/ricardotimm/Documents/caches/transforms-3/14a11a16ce4b7bcac4baba6bfac4d99a/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
 79            android:name="androidx.window.extensions"
-79-->[androidx.window:window:1.0.0] /Users/cosima/.gradle/caches/transforms-3/14a11a16ce4b7bcac4baba6bfac4d99a/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+79-->[androidx.window:window:1.0.0] /Users/ricardotimm/Documents/caches/transforms-3/14a11a16ce4b7bcac4baba6bfac4d99a/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
 80            android:required="false" />
-80-->[androidx.window:window:1.0.0] /Users/cosima/.gradle/caches/transforms-3/14a11a16ce4b7bcac4baba6bfac4d99a/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+80-->[androidx.window:window:1.0.0] /Users/ricardotimm/Documents/caches/transforms-3/14a11a16ce4b7bcac4baba6bfac4d99a/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
 81        <uses-library
-81-->[androidx.window:window:1.0.0] /Users/cosima/.gradle/caches/transforms-3/14a11a16ce4b7bcac4baba6bfac4d99a/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+81-->[androidx.window:window:1.0.0] /Users/ricardotimm/Documents/caches/transforms-3/14a11a16ce4b7bcac4baba6bfac4d99a/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
 82            android:name="androidx.window.sidecar"
-82-->[androidx.window:window:1.0.0] /Users/cosima/.gradle/caches/transforms-3/14a11a16ce4b7bcac4baba6bfac4d99a/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+82-->[androidx.window:window:1.0.0] /Users/ricardotimm/Documents/caches/transforms-3/14a11a16ce4b7bcac4baba6bfac4d99a/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
 83            android:required="false" />
-83-->[androidx.window:window:1.0.0] /Users/cosima/.gradle/caches/transforms-3/14a11a16ce4b7bcac4baba6bfac4d99a/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+83-->[androidx.window:window:1.0.0] /Users/ricardotimm/Documents/caches/transforms-3/14a11a16ce4b7bcac4baba6bfac4d99a/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
 84
 85        <activity
-85-->[androidx.compose.ui:ui-test-manifest:1.5.0] /Users/cosima/.gradle/caches/transforms-3/53c13003b43d3edb7dc5c05f148bdf8c/transformed/ui-test-manifest-1.5.0/AndroidManifest.xml:23:9-25:39
+85-->[androidx.compose.ui:ui-test-manifest:1.5.0] /Users/ricardotimm/Documents/caches/transforms-3/53c13003b43d3edb7dc5c05f148bdf8c/transformed/ui-test-manifest-1.5.0/AndroidManifest.xml:23:9-25:39
 86            android:name="androidx.activity.ComponentActivity"
-86-->[androidx.compose.ui:ui-test-manifest:1.5.0] /Users/cosima/.gradle/caches/transforms-3/53c13003b43d3edb7dc5c05f148bdf8c/transformed/ui-test-manifest-1.5.0/AndroidManifest.xml:24:13-63
+86-->[androidx.compose.ui:ui-test-manifest:1.5.0] /Users/ricardotimm/Documents/caches/transforms-3/53c13003b43d3edb7dc5c05f148bdf8c/transformed/ui-test-manifest-1.5.0/AndroidManifest.xml:24:13-63
 87            android:exported="true" />
-87-->[androidx.compose.ui:ui-test-manifest:1.5.0] /Users/cosima/.gradle/caches/transforms-3/53c13003b43d3edb7dc5c05f148bdf8c/transformed/ui-test-manifest-1.5.0/AndroidManifest.xml:25:13-36
+87-->[androidx.compose.ui:ui-test-manifest:1.5.0] /Users/ricardotimm/Documents/caches/transforms-3/53c13003b43d3edb7dc5c05f148bdf8c/transformed/ui-test-manifest-1.5.0/AndroidManifest.xml:25:13-36
 88
 89        <receiver
-89-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
 90            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-90-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+90-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
 91            android:directBootAware="false"
-91-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
 92            android:enabled="true"
-92-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
 93            android:exported="true"
-93-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+93-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
 94            android:permission="android.permission.DUMP" >
-94-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+94-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
 95            <intent-filter>
-95-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+95-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
 96                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-96-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
-96-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+96-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+96-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
 97            </intent-filter>
 98            <intent-filter>
-98-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
 99                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-99-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
-99-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+99-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+99-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
 100            </intent-filter>
 101            <intent-filter>
-101-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+101-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
 102                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-102-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
-102-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+102-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+102-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
 103            </intent-filter>
 104            <intent-filter>
-104-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+104-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
 105                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-105-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
-105-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/cosima/.gradle/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+105-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+105-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/ricardotimm/Documents/caches/transforms-3/dc3165d93249684a1cf81726d6d460bd/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
 106            </intent-filter>
 107        </receiver>
 108    </application>
