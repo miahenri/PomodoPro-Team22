@@ -91,7 +91,8 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
 
         // If the service is still running, resume the timer
         if (_timerRunning.value && isServiceRunning(PomodoroForegroundService::class.java)) {
-            startTimer()
+            startForegroundService(context, _timeLeftInMillis.value, _phase.value)
+            startTimer()  // Make sure the timer starts with the correct phase
         }
     }
 
@@ -160,6 +161,15 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
         _timeLeftInMillis.value = settingsViewModel.workTimeMinutes.value * 60 * 1000L
         _timerRunning.value = false
         completedWorkSessions = 0 // Reset work session count
+
+        // Save the reset state
+        sharedPreferences.edit().apply {
+            putString("currentPhase", PomodoroPhase.WORK.name)
+            putLong("timeLeftInMillis", _timeLeftInMillis.value)
+            putInt("completedWorkSessions", completedWorkSessions)
+            apply()
+        }
+
         stopForegroundService(context) // Stop the foreground service to reset the notification
     }
 
@@ -185,8 +195,13 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
                     PomodoroPhase.SHORT_BREAK
                 }
             }
-            PomodoroPhase.SHORT_BREAK, PomodoroPhase.LONG_BREAK -> _phase.value = PomodoroPhase.WORK
+            PomodoroPhase.SHORT_BREAK, PomodoroPhase.LONG_BREAK -> {
+                _phase.value = PomodoroPhase.WORK
+            }
         }
+
+        // Save the current phase after every transition
+        sharedPreferences.edit().putString("currentPhase", _phase.value.name).apply()
     }
 
     // Displays a notification when the Pomodoro timer finishes
@@ -224,7 +239,7 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
     }
 
     // Starts the foreground service with the timer information and current phase
-    fun startForegroundService(context: Context, timeLeftInMillis: Long, currentPhase: PomodoroPhase) {
+    private fun startForegroundService(context: Context, timeLeftInMillis: Long, currentPhase: PomodoroPhase) {
         val intent = Intent(context, PomodoroForegroundService::class.java).apply {
             action = PomodoroForegroundService.ACTION_START
             putExtra("time_left", timeLeftInMillis)
@@ -234,7 +249,7 @@ class MainViewModel(application: Application, private val settingsViewModel: Set
     }
 
     // Stops the foreground service
-    fun stopForegroundService(context: Context) {
+    private fun stopForegroundService(context: Context) {
         val intent = Intent(context, PomodoroForegroundService::class.java).apply {
             action = PomodoroForegroundService.ACTION_STOP
         }
