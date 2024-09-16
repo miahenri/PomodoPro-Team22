@@ -1,6 +1,5 @@
 package com.example.pomodoro_22.ui.main
 
-import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
@@ -9,7 +8,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.pomodoro_22.ui.task.TaskList
-import com.example.pomodoro_22.ui.task.TaskViewModel
+import com.example.pomodoro_22.viewmodel.TaskViewModel
+import com.example.pomodoro_22.viewmodel.MainViewModel
+import com.example.pomodoro_22.viewmodel.PomodoroPhase
 
 @Composable
 fun MainScreen(

@@ -22,14 +22,14 @@
 
         <!-- Add your foreground service declaration here -->
         <service
-            android:name=".ui.main.PomodoroForegroundService"
+            android:name=".service.PomodoroForegroundService"
             android:foregroundServiceType="mediaPlayback"
             tools:targetApi="34"
             tools:ignore="ForegroundServiceType" />
 
         <!-- MainActivity declaration -->
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.Pomodoro22">

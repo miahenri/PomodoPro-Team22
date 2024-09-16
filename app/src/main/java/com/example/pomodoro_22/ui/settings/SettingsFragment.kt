@@ -10,7 +10,8 @@ import com.example.pomodoro_22.R
 import com.example.pomodoro_22.ui.main.DividerLine
 import com.example.pomodoro_22.ui.main.PomodoroTitle
 import com.example.pomodoro_22.ui.main.RoundedIconButton
-import com.example.pomodoro_22.ui.main.MainViewModel
+import com.example.pomodoro_22.viewmodel.MainViewModel
+import com.example.pomodoro_22.viewmodel.SettingsViewModel
 
 @Composable
 fun SettingsFragment(

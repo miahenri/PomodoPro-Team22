@@ -2,22 +2,20 @@ package com.example.pomodoro_22.ui.task
 
 import android.util.Log
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.pomodoro_22.R
 import com.example.pomodoro_22.model.Task
 import com.example.pomodoro_22.ui.main.DividerLine
 import com.example.pomodoro_22.ui.main.PomodoroTitle
 import com.example.pomodoro_22.ui.main.RoundedIconButton
+import com.example.pomodoro_22.viewmodel.TaskViewModel
 
 @Composable
 fun TaskFragment(navController: NavHostController, taskViewModel: TaskViewModel) {
