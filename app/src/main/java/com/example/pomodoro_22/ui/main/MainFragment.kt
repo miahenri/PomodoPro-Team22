@@ -17,9 +17,9 @@ fun MainScreen(
     taskViewModel: TaskViewModel,
     timerViewModel: MainViewModel
 ) {
-    val timerRunning by timerViewModel.timerRunning.collectAsState()
-    val timeLeftInMillis by timerViewModel.timeLeftInMillis.collectAsState()
-    val currentPhase by timerViewModel.phase.collectAsState()
+    val timerRunning by timerViewModel.timerRunning.observeAsState(false)
+    val timeLeftInMillis by timerViewModel.timeLeftInMillis.observeAsState(0L)
+    val currentPhase by timerViewModel.phase.observeAsState(PomodoroPhase.WORK)
     val totalTimeForCurrentPhase = timerViewModel.totalTimeForCurrentPhase
 
     Column(

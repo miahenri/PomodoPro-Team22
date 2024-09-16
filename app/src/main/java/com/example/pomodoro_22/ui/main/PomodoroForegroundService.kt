@@ -3,13 +3,14 @@ package com.example.pomodoro_22.ui.main
 import android.app.*
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.ACTION_SYNC
 import android.content.pm.PackageManager
 import android.os.*
+import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import com.example.pomodoro_22.R
-import com.example.pomodoro_22.ui.main.*
 
 class PomodoroForegroundService : Service() {
 
@@ -19,33 +20,30 @@ class PomodoroForegroundService : Service() {
 
     // Handle the start and stop commands for the foreground service
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-
-        if (timer == null || timeLeftInMillis == 0L) {
-            startForegroundService()  // Ensure only one timer instance is running
-        }
-
-        val action = intent?.action
-        timeLeftInMillis = intent?.getLongExtra("time_left", 0) ?: 0
-        currentPhase = PomodoroPhase.valueOf(intent?.getStringExtra("current_phase") ?: PomodoroPhase.WORK.name)
-
+        val action = intent?.action ?: return START_NOT_STICKY
         when (action) {
             ACTION_START -> {
+                timeLeftInMillis = intent?.getLongExtra("time_left", 0) ?: 0
+                currentPhase = PomodoroPhase.valueOf(intent?.getStringExtra("current_phase") ?: PomodoroPhase.WORK.name)
                 createNotificationChannel()
-                startForegroundService()
+                startForegroundService(timeLeftInMillis, currentPhase)
+                updateNotification(timeLeftInMillis, currentPhase)
             }
             ACTION_STOP -> stopForegroundService()
+            ACTION_RESET -> stopForegroundService()
+            ACTION_SYNC -> {
+                timeLeftInMillis = intent.getLongExtra("time_left", 0)
+                currentPhase = PomodoroPhase.valueOf(intent.getStringExtra("current_phase")!!)
+                updateNotification(timeLeftInMillis, currentPhase)
+                startForegroundService(timeLeftInMillis, currentPhase)
+            }
+            ACTION_SKIP -> {
+                val timeLeftInMillis = intent?.getLongExtra("time_left", 0) ?: 0
+                val currentPhase = PomodoroPhase.valueOf(intent?.getStringExtra("current_phase") ?: PomodoroPhase.WORK.name)
+                startForegroundService(timeLeftInMillis, currentPhase)
+            }
         }
-
-        return START_NOT_STICKY // Ensures the service does not restart automatically if killed by the system
-    }
-
-    // Check if notification permissions are granted (Android 13+ specific)
-    private fun checkNotificationPermission(): Boolean {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
-        } else {
-            true
-        }
+        return START_NOT_STICKY
     }
 
     // Create a notification channel (required for Android O and higher)
@@ -61,69 +59,26 @@ class PomodoroForegroundService : Service() {
         }
     }
 
-    // Track the number of completed work sessions
-    private var completedWorkSessions: Int = 0
-
-    // Save the timer state to shared preferences (to persist across service or app restarts)
-    private fun saveTimerStateToSharedPreferences() {
-        val sharedPreferences = getSharedPreferences("pomodoro_prefs", Context.MODE_PRIVATE)
-        sharedPreferences.edit().apply {
-            putLong("timeLeftInMillis", timeLeftInMillis)
-            putString("currentPhase", currentPhase.name)  // Save the current Pomodoro phase
-            putBoolean("timerRunning", true)  // Indicate that the timer is running
-            putInt("completedWorkSessions", completedWorkSessions)  // Save the number of completed work sessions
-            apply()
-        }
-    }
-
     // Start the foreground service with the countdown timer
-    private fun startForegroundService() {
-        val notification = createNotification(timeLeftInMillis, currentPhase) // Create the initial notification
-        startForeground(NOTIFICATION_ID, notification) // Start the service in the foreground with the notification
-
-        // Cancel any existing timer and start a new countdown timer
-        timer?.cancel()
-        timer = object : CountDownTimer(timeLeftInMillis, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                timeLeftInMillis = millisUntilFinished
-                saveTimerStateToSharedPreferences()
-                updateNotification(millisUntilFinished) // Update the notification to reflect the remaining time
-            }
-
-            override fun onFinish() {
-                showNotification()
-                stopForegroundService()
-            }
-        }.start()
-    }
-
-    private fun showNotification() {
-        // Only show the notification if permission is granted
-        if (checkNotificationPermission()) {
-            val notification = createNotification(0, currentPhase) // Timer finished state
-            try {
-                NotificationManagerCompat.from(this).notify(NOTIFICATION_ID, notification)
-            } catch (e: SecurityException) {
-                // Handle the security exception in case permission is revoked during runtime
-                e.printStackTrace()
-            }
-        }
+    private fun startForegroundService(timeLeftInMillis: Long, currentPhase: PomodoroPhase) {
+        val notification = createNotification(timeLeftInMillis, currentPhase)
+        startForeground(NOTIFICATION_ID, notification)
     }
 
     // Stop the foreground service and cancel the timer
     private fun stopForegroundService() {
         timer?.cancel() // Cancel the running timer in the foreground service
-        stopForeground(true) // Remove the service from the foreground
+        stopForeground(STOP_FOREGROUND_DETACH) // Remove the notification from the foreground
+        stopForeground(STOP_FOREGROUND_REMOVE) // Remove the notification from the foreground
         stopSelf() // Stop the service completely
         //NotificationManagerCompat.from(this).cancel(NOTIFICATION_ID) // Remove the notification
     }
 
     // Update the notification with the remaining time on every tick of the timer
-    private fun updateNotification(millisUntilFinished: Long) {
+    private fun updateNotification(millisUntilFinished: Long, currentPhase: PomodoroPhase = this.currentPhase) {
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         val notification = createNotification(millisUntilFinished, currentPhase)
-        if (checkNotificationPermission()) {
-            NotificationManagerCompat.from(this).notify(NOTIFICATION_ID, notification)
-        }
+        notificationManager.notify(NOTIFICATION_ID, notification)
     }
 
     // Create a notification to show the remaining Pomodoro time
@@ -136,7 +91,7 @@ class PomodoroForegroundService : Service() {
         val pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE)
 
         return NotificationCompat.Builder(this, TIMER_CHANNEL_ID)
-            .setContentTitle("Pomodoro Timer - ${getPhaseDisplayName(currentPhase)}") // Show the user-friendly phase
+            .setContentTitle("Pomodoro Timer - $currentPhase") // Show the current phase
             .setContentText(String.format("%02d:%02d remaining", minutes, seconds)) // Display remaining time
             .setSmallIcon(R.drawable.timericon)  // Replace with the appropriate icon
             .setContentIntent(pendingIntent) // Open the app when the notification is tapped
@@ -145,23 +100,21 @@ class PomodoroForegroundService : Service() {
             .build()
     }
 
+
+
     // Binding is not required for this service
     override fun onBind(intent: Intent?): IBinder? {
         return null
     }
 
     companion object {
-        const val ACTION_START = "START" // Action to start the foreground service
-        const val ACTION_STOP = "STOP" // Action to stop the foreground service
-        const val NOTIFICATION_ID = 1 // ID for the notification
-        const val TIMER_CHANNEL_ID = "timer_channel" // ID for the notification channel
-    }
+        const val ACTION_START = "START"
+        const val ACTION_STOP = "STOP"
+        const val ACTION_RESET = "RESET"
+        const val ACTION_SKIP = "SKIP"
+        const val ACTION_SYNC = "SYNC"
+        const val NOTIFICATION_ID = 1
+        const val TIMER_CHANNEL_ID = "timer_channel"
 
-    private fun getPhaseDisplayName(phase: PomodoroPhase): String {
-        return when (phase) {
-            PomodoroPhase.WORK -> "Work Session"
-            PomodoroPhase.SHORT_BREAK -> "Short Break"
-            PomodoroPhase.LONG_BREAK -> "Long Break"
-        }
     }
 }

@@ -32,6 +32,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Pomodoro22" >
+        <receiver android:name="com.example.pomodoro_22.ui.main.TimerFinishedReceiver" />
 
         <!-- Add your foreground service declaration here -->
         <service
