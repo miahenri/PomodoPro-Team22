@@ -91,14 +91,16 @@ fun TaskFragment(navController: NavHostController, taskViewModel: TaskViewModel)
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // List of incomplete tasks
+        // Scrollable list of incomplete tasks
         TaskList(
             tasks = incompleteTasks,
             onTaskClick = { task ->
                 // Update task status to completed
                 taskViewModel.updateTask(task.copy(isCompleted = true))
             },
-            onTaskDelete = { task -> taskViewModel.deleteTask(task) }
+            onTaskDelete = { task -> taskViewModel.deleteTask(task) },
+            modifier = Modifier
+                .weight(1f) // Allow it to take up available space with scroll
         )
 
         Spacer(modifier = Modifier.height(32.dp))
@@ -129,14 +131,16 @@ fun TaskFragment(navController: NavHostController, taskViewModel: TaskViewModel)
         DividerLine()
         Spacer(modifier = Modifier.height(16.dp))
 
-        // List of completed tasks
+        // Scrollable list of completed tasks
         TaskList(
             tasks = completedTasks,
             onTaskClick = { task ->
                 // Update task status to incomplete (move back to upper list)
                 taskViewModel.updateTask(task.copy(isCompleted = false))
             },
-            onTaskDelete = { task -> taskViewModel.deleteTask(task) }
+            onTaskDelete = { task -> taskViewModel.deleteTask(task) },
+            modifier = Modifier
+                .weight(1f) // Allow it to take up available space with scroll
         )
     }
 }

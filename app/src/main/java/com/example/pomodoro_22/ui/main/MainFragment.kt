@@ -23,6 +23,8 @@ fun MainScreen(
     val currentPhase by timerViewModel.phase.observeAsState(PomodoroPhase.WORK)
     val totalTimeForCurrentPhase = timerViewModel.totalTimeForCurrentPhase
 
+    val incompleteTasks = taskViewModel.tasks.observeAsState(emptyList()).value.filter { !it.isCompleted }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -66,7 +68,7 @@ fun MainScreen(
         DividerLine()
 
         TaskList(
-            tasks = taskViewModel.tasks.observeAsState(emptyList()).value,
+            tasks = incompleteTasks,  // Pass only incomplete tasks
             onTaskClick = { updatedTask -> taskViewModel.updateTask(updatedTask) },
             onTaskDelete = { task -> taskViewModel.deleteTask(task) }
         )

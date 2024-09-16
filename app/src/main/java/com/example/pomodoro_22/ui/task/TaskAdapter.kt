@@ -3,6 +3,7 @@ package com.example.pomodoro_22.ui.task
 import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
@@ -93,12 +94,17 @@ fun TaskItem(
 fun TaskList(
     tasks: List<Task>,
     onTaskClick: (Task) -> Unit,
-    onTaskDelete: (Task) -> Unit  // Added delete functionality
+    onTaskDelete: (Task) -> Unit,
+    modifier: Modifier = Modifier  // Added modifier for flexibility
 ) {
-    Column {
-        tasks.forEach { task ->
+    LazyColumn(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+    ) {
+        items(tasks.size) { index ->
             TaskItem(
-                task = task,
+                task = tasks[index],
                 onTaskClick = onTaskClick,
                 onTaskDelete = onTaskDelete
             )
